@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No. 1 🎨龍騰 B1 L5 The Life of a Plastic Bag 單片閃卡與造句練習</title>
+<style>
+:root{
+  --macaronBlue:#E2F1FF; --macaronPurple:#F3E8FF; --macaronPink:#FCE7F3;
+  --macaronYellow:#FFFBEB; --macaronGreen:#ECFDF5;
+  --darkCoffee:#4A3E3D; --darkCoffeeLight:#6B5A59;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Microsoft JhengHei","Heiti TC","Segoe UI",sans-serif;
+  color:var(--darkCoffee);
+  background:linear-gradient(180deg,#FFFDF9 0%,#FFF7FB 40%,#F4FBFF 100%);
+  min-height:100vh;display:flex;flex-direction:column;padding-bottom:11rem;position:relative;
+}
+/* 預留底部安全區，避免瀏覽器／平台底部訊息條擋住按鈕與內容 */
+footer{padding-bottom:8rem !important;}
+/* 底部安全間隔：避免預覽視窗底部的提示列蓋住按鈕 */
+.bottom-safe{height:9rem;flex:none;}
+@media print{
+  nav,#home-hero,#fireworksCanvas,#toast-message,.end-btns,footer,#section-flashcards,#section-practice{display:none !important;}
+  body{padding:0;background:#fff;}
+}
+.hidden{display:none !important;}
+#fireworksCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:50;}
+nav.nav-hidden{transform:translateY(-120%);opacity:0;}
+nav{background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:2px solid var(--macaronPurple);
+  position:sticky;top:0;z-index:40;padding:.45rem .7rem;transition:transform .35s ease, opacity .35s ease;box-shadow:0 2px 12px rgba(74,62,61,.06);}
+.nav-inner{max-width:1150px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:800;line-height:1.45;}
+.logo .hl{background:linear-gradient(90deg,#ec4899,#8b5cf6,#0ea5e9);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900;}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;}
+.btn{border:none;cursor:pointer;font-family:inherit;transition:all .2s ease-in-out;}
+.btn:hover{transform:translateY(-2px);}
+.btn:active{transform:translateY(1px);}
+.tab-btn{padding:.35rem .7rem;border-radius:999px;font-weight:800;font-size:.7rem;color:var(--darkCoffee);
+  background:#fff;border:2px solid #eee;}
+.tab-btn.active{background:linear-gradient(90deg,var(--macaronBlue),var(--macaronPurple));border-color:#bfdbfe;box-shadow:0 4px 10px rgba(147,197,253,.35);}
+.tab-btn.yellow{background:var(--macaronYellow);border-color:#fde68a;}
+#home-hero{transition:all .6s cubic-bezier(.4,0,.2,1);max-height:900px;overflow:hidden;
+  background:linear-gradient(120deg,var(--macaronYellow),var(--macaronPink) 45%,var(--macaronBlue));
+  padding:1.75rem 1rem;border-bottom:2px solid #f3e8ff;text-align:center;}
+#home-hero.collapsed{max-height:0!important;padding:0!important;opacity:0;pointer-events:none;}
+.hero-inner{max-width:820px;margin:0 auto;}
+.pill{display:inline-block;background:rgba(255,255,255,.9);padding:.35rem 1rem;border-radius:999px;font-size:.78rem;
+  font-weight:800;border:1px solid #fbcfe8;margin-bottom:.75rem;}
+.hero-inner h2{font-size:1.35rem;font-weight:900;margin-bottom:.9rem;line-height:1.5;}
+.hero-inner p{font-size:.88rem;color:var(--darkCoffeeLight);line-height:1.9;margin-bottom:1.2rem;font-weight:600;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.hero-btn{padding:.8rem 1.4rem;border-radius:1rem;font-weight:800;font-size:1rem;box-shadow:0 6px 16px rgba(74,62,61,.12);}
+.hero-btn.light{background:#fff;color:var(--darkCoffee);border:2px solid #bfdbfe;}
+.hero-btn.dark{background:var(--darkCoffee);color:#fff;}
+main{flex:1;width:100%;max-width:960px;margin:0 auto;padding:1.2rem;}
+section{display:flex;flex-direction:column;gap:1.2rem;}
+/* 閃卡 */
+.filter-box{max-width:420px;margin:0 auto 0.4rem;text-align:center;}
+.filter-box label{display:block;font-size:.85rem;font-weight:800;color:var(--darkCoffeeLight);margin-bottom:.4rem;}
+select{width:100%;padding:.65rem 1rem;border-radius:.85rem;border:2px solid var(--macaronPurple);
+  font-family:inherit;font-weight:800;color:var(--darkCoffee);background:#fff;font-size:1rem;}
+.card-wrap{display:flex;flex-direction:column;align-items:center;max-width:580px;margin:0 auto;width:100%;}
+.flip-card{width:100%;height:29rem;perspective:1200px;cursor:pointer;background:transparent;}
+.flip-card-inner{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;}
+.flip-card.flipped .flip-card-inner{transform:rotateY(180deg);}
+.flip-card-front,.flip-card-back{position:absolute;width:100%;height:100%;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+  border-radius:1.5rem;box-shadow:0 12px 28px -6px rgba(74,62,61,.18);border:5px solid #fff;padding:1.3rem;
+  display:flex;flex-direction:column;justify-content:space-between;}
+.flip-card-front{background:linear-gradient(160deg,var(--macaronBlue),#f0f9ff);}
+.flip-card-back{transform:rotateY(180deg);background:linear-gradient(160deg,var(--macaronPink),#fff1f8);overflow-y:auto;}
+.card-top{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;font-weight:800;}
+.tag{background:rgba(255,255,255,.85);padding:.25rem .7rem;border-radius:999px;}
+.word-main{text-align:center;margin:auto 0;}
+.word-main h3{font-size:2.1rem;font-weight:900;letter-spacing:.02em;word-break:break-word;}
+.word-main .hint{font-size:.82rem;color:var(--darkCoffeeLight);margin-top:.7rem;letter-spacing:.1em;}
+.speak-btn{background:#fff;border-radius:999px;padding:.7rem 1.1rem;font-weight:800;font-size:.85rem;
+  box-shadow:0 4px 10px rgba(74,62,61,.12);}
+.speak-btn:hover{background:var(--macaronYellow);}
+.info-box{background:rgba(255,255,255,.88);padding:.7rem .85rem;border-radius:.9rem;margin-bottom:.55rem;text-align:left;}
+.info-box .lbl{font-size:.72rem;font-weight:900;display:block;margin-bottom:.25rem;}
+.info-box p{font-size:.82rem;font-weight:600;line-height:1.55;word-break:break-word;overflow-wrap:anywhere;}
+.ex-ch{font-size:.78rem !important;color:#6B5A59;font-weight:700 !important;margin-top:.3rem;
+  padding-top:.3rem;border-top:1px dashed #e9d5ff;font-style:normal;line-height:1.6;}
+.ex-ch:empty{display:none;}
+.nav-cards{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:24rem;margin-top:1.3rem;gap:.5rem;}
+.arrow-btn{padding:.7rem 1.1rem;background:var(--macaronYellow);border:2px solid #fde68a;border-radius:1rem;font-weight:800;font-size:1rem;
+  box-shadow:0 4px 10px rgba(253,230,138,.4);}
+.flip-btn{padding:.55rem .9rem;background:#fff;border:2px solid #eee;border-radius:.8rem;font-weight:800;font-size:.85rem;}
+/* 造句 */
+.scoreboard{background:linear-gradient(90deg,var(--macaronBlue),var(--macaronPurple),var(--macaronPink));
+  padding:1rem;border-radius:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.8rem;}
+.score-chips{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;}
+.chip{background:rgba(255,255,255,.92);padding:.5rem .9rem;border-radius:.85rem;text-align:center;font-weight:800;font-size:.9rem;border:1px solid #e9d5ff;}
+.chip span.small{display:block;font-size:.7rem;color:var(--darkCoffeeLight);}
+.big-num{font-size:1.15rem;font-weight:900;}
+.rule-bar{background:var(--macaronGreen);border:2px solid #bbf7d0;border-radius:1rem;padding:.7rem 1rem;
+  font-size:.85rem;font-weight:800;color:var(--darkCoffeeLight);text-align:center;line-height:1.8;}
+.panel{background:#fff;border-radius:1.5rem;padding:1.3rem;border:2px solid var(--macaronPurple);box-shadow:0 6px 18px rgba(74,62,61,.06);}
+.panel-yellow{background:rgba(255,251,235,.7);border:2px solid #fde68a;border-radius:1.5rem;padding:1.3rem;}
+textarea{width:100%;padding:.9rem;border-radius:1rem;border:2px solid #ddd6fe;font-family:inherit;font-size:1rem;
+  font-weight:700;color:var(--darkCoffee);resize:vertical;}
+textarea:focus{outline:none;border-color:#f9a8d4;}
+.submit-btn{padding:.85rem 1.8rem;background:linear-gradient(90deg,#f472b6,#a78bfa);color:#fff;font-weight:900;
+  border-radius:1rem;font-size:1rem;box-shadow:0 6px 16px rgba(167,139,250,.4);}
+.diag-grid{display:grid;grid-template-columns:1fr;gap:.7rem;}
+.diag{padding:.75rem;border-radius:.85rem;background:#f8f8f8;border:1px solid #eee;font-size:.82rem;font-weight:700;line-height:1.6;}
+.diag.ok{background:#f0fdf4;border-color:#bbf7d0;color:#15803d;}
+.diag.bad{background:#fef2f2;border-color:#fecaca;color:#b91c1c;}
+.compare-grid{display:grid;grid-template-columns:1fr;gap:.8rem;}
+.cbox{padding:.9rem;border-radius:1rem;font-size:.92rem;font-weight:700;line-height:1.7;}
+.cbox .lbl{font-size:.72rem;font-weight:900;display:block;margin-bottom:.4rem;}
+.cbox.pink{background:#fdf2f8;border:1px solid #fbcfe8;}
+.cbox.green{background:#f0fdf4;border:1px solid #bbf7d0;}
+.cbox.blue{background:#eff6ff;border:1px solid #bfdbfe;}
+.hl-target{background:#fef08a;color:#db2777;padding:.05rem .3rem;border-radius:.3rem;font-weight:900;}
+@keyframes scorePop{0%{transform:scale(1);}50%{transform:scale(1.6);}100%{transform:scale(1);}}
+.score-pop{animation:scorePop .5s ease-in-out;display:inline-block;}
+.delta{padding:.4rem 1rem;border-radius:999px;font-size:.88rem;font-weight:900;}
+.delta.plus{background:#dcfce7;color:#15803d;border:1px solid #bbf7d0;}
+.delta.minus{background:#fce7f3;color:#be185d;border:1px solid #fbcfe8;}
+.next-btn{padding:.75rem 1.4rem;background:var(--macaronBlue);border:2px solid #bfdbfe;border-radius:1rem;font-weight:900;}
+.review-head{text-align:center;}
+.review-head h2{font-size:1.6rem;font-weight:900;margin:.4rem 0;}
+.review-score-panel{background:linear-gradient(120deg,var(--macaronYellow),var(--macaronPink),var(--macaronPurple));
+  padding:1.6rem;border-radius:1.5rem;text-align:center;}
+.review-score-panel .big{font-size:2.8rem;font-weight:900;color:#db2777;display:block;margin:.4rem 0;}
+.white-box{background:rgba(255,255,255,.92);padding:1rem;border-radius:1rem;margin-top:.9rem;text-align:left;font-size:.9rem;font-weight:700;line-height:1.8;}
+.rcard{padding:1.1rem;border-radius:1.2rem;border:2px solid #eee;display:flex;flex-direction:column;gap:.6rem;}
+.rcard.ok{border-color:#bbf7d0;background:rgba(240,253,244,.4);}
+.rcard.bad{border-color:#fbcfe8;background:rgba(253,242,248,.4);}
+.badge{font-size:.72rem;padding:.2rem .7rem;border-radius:999px;font-weight:800;}
+.badge.ok{background:#dcfce7;color:#166534;}
+.badge.bad{background:#fce7f3;color:#9d174d;}
+.mini{background:#fff;padding:.7rem;border-radius:.8rem;border:1px solid #f1f1f1;font-size:.88rem;font-weight:700;line-height:1.7;}
+.mini .lbl{font-size:.7rem;font-weight:900;display:block;margin-bottom:.25rem;}
+.end-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;background:#fff;padding:1.3rem;border-radius:1.5rem;border:2px solid var(--macaronPurple);}
+.gray-btn{padding:.85rem 1.6rem;background:#eee;border-radius:1rem;font-weight:900;}
+.blue-btn{padding:.85rem 1.6rem;background:linear-gradient(90deg,#60a5fa,#a78bfa);color:#fff;border-radius:1rem;font-weight:900;box-shadow:0 6px 16px rgba(96,165,250,.4);}
+#toast-message{position:fixed;bottom:9rem;left:50%;transform:translateX(-50%);background:var(--darkCoffee);color:#fff;
+  padding:.8rem 1.5rem;border-radius:999px;font-weight:800;z-index:60;box-shadow:0 10px 25px rgba(0,0,0,.2);max-width:90%;text-align:center;font-size:.9rem;}
+footer{text-align:center;font-size:.8rem;color:rgba(74,62,61,.55);padding:1.2rem;border-top:1px solid rgba(147,51,234,.1);margin-top:1.5rem;}
+.spinner{display:inline-block;width:18px;height:18px;border:3px solid #ddd;border-top-color:#a78bfa;border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media(min-width:768px){
+  .logo{font-size:.9rem;}
+  .hero-inner h2{font-size:1.8rem;}
+  .diag-grid{grid-template-columns:repeat(3,1fr);}
+  .compare-grid{grid-template-columns:repeat(3,1fr);}
+  .word-main h3{font-size:2.6rem;}
+}
+</style>
+</head>
+<body>
+<canvas id="fireworksCanvas"></canvas>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span style="font-size:1.1rem;">🎨</span>
+      <span>No. 1 龍騰 B1 L5 <span class="hl">The Life of a Plastic Bag</span> 單片閃卡與造句練習</span>
+    </div>
+    <div class="tabs">
+      <button class="btn tab-btn active" id="tab-flashcards" onclick="switchTab('flashcards')">🃏 閃卡自學模式</button>
+      <button class="btn tab-btn" id="tab-practice" onclick="switchTab('practice')">✍️ 搭配詞造句遊戲</button>
+      <button class="btn tab-btn yellow" onclick="toggleHeroManual()">💡 課程導言 <span id="hero-arrow">▲</span></button>
+    </div>
+  </div>
+</nav>
+
+<div id="home-hero">
+  <div class="hero-inner">
+    <div class="pill">👋 高一專屬自學好心情空間</div>
+    <h2>一個塑膠袋的旅程，從便利到海洋！🛍️🌊</h2>
+    <p>親愛的同學們！歡迎來到 <b>The Life of a Plastic Bag</b> 的自學互動空間。我們為你精選了
+       <b>32 個精彩單字搭配詞與 5 大使役動詞句型</b>。先透過 3D 閃卡建立印象，再到造句遊戲中親自動手寫寫看。
+       造句遊戲採用 <b>Kahoot! 計分方式</b>：造句正確無誤 <b style="color:#15803d;">+200 分</b>，
+       有錯誤的地方 <b style="color:#db2777;">倒扣 50 分</b>，採累計式計分，快來挑戰你的最高總分吧！</p>
+    <div class="hero-btns">
+      <button class="btn hero-btn light" onclick="startLearningProcess('flashcards')">🚀 翻轉閃卡開始</button>
+      <button class="btn hero-btn dark" onclick="startLearningProcess('practice')">💪 直接挑戰造句</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div id="toast-message" class="hidden"></div>
+
+  <!-- 閃卡 -->
+  <section id="section-flashcards">
+    <div class="filter-box">
+      <label>🏷️ 篩選學習分類：</label>
+      <select id="flashcard-filter" onchange="filterFlashcards()">
+        <option value="all">📚 全部內容 (37 項)</option>
+        <option value="vocabulary">1. 應用字彙 (1-16 題)</option>
+        <option value="idiom">2. 慣用語與片語 (17-21 題)</option>
+        <option value="recognize">3. 認字與補充 (22-32 題)</option>
+        <option value="grammar">4. 進階句型 (33-37 題)</option>
+      </select>
+    </div>
+    <div class="card-wrap">
+      <div class="flip-card" id="flashcard-element" onclick="flipCurrentCard()">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="card-top">
+              <span class="tag" id="card-pos-front">pos</span>
+              <span style="opacity:.6;" id="card-index-indicator">1 / 37</span>
+            </div>
+            <div class="word-main">
+              <h3 id="card-word-front">plastic</h3>
+              <p class="hint">💡 點擊卡片翻看中文意思與例句</p>
+            </div>
+            <div style="display:flex;justify-content:center;">
+              <button class="btn speak-btn" onclick="speakWord(event)">🔊 聽發音</button>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="card-top">
+              <span class="tag">中文與例句</span>
+              <span class="tag" style="color:#db2777;">BACK</span>
+            </div>
+            <div style="margin:auto 0;">
+              <h4 id="card-ch-back" style="text-align:center;font-size:1.35rem;font-weight:900;color:#9d174d;margin-bottom:.7rem;">中文翻譯</h4>
+              <div class="info-box">
+                <span class="lbl" style="color:#7c3aed;">🐬 例句中的搭配詞/句型：</span>
+                <p id="card-target-back" style="font-weight:900;">target</p>
+                <p id="card-target-ch-back" style="font-size:.78rem;color:var(--darkCoffeeLight);">(中譯)</p>
+              </div>
+              <div class="info-box">
+                <span class="lbl" style="color:#2563eb;">📝 課堂英文例句：</span>
+                <p id="card-example-back" style="font-style:italic;">example</p>
+                <p id="card-example-ch-back" class="ex-ch">中文翻譯</p>
+              </div>
+              <div class="info-box">
+                <span class="lbl" style="color:#15803d;">🌱 同義字／反義字／補充：</span>
+                <p id="card-syn-back">—</p>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:center;">
+              <button class="btn speak-btn" onclick="speakExample(event)">🔊 聽例句朗讀</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-cards">
+        <button class="btn arrow-btn" onclick="prevFlashcard()">⏫ 上一個</button>
+        <button class="btn flip-btn" onclick="flipCurrentCard()">🔄 翻轉</button>
+        <button class="btn arrow-btn" onclick="nextFlashcard()">⏬ 下一個</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 造句 -->
+  <section id="section-practice" class="hidden">
+    <div class="scoreboard">
+      <div>
+        <span style="font-size:.72rem;font-weight:800;opacity:.75;letter-spacing:.05em;">KAHOOT! STYLE COLLOCATION CHALLENGE</span>
+        <h3 style="font-size:1.1rem;font-weight:900;">第 <span id="span-round-num" style="color:#db2777;font-size:1.5rem;">1</span> / 5 學習輪次</h3>
+      </div>
+      <div class="score-chips">
+        <div class="chip"><span class="small">本輪進度</span><span class="big-num" id="span-question-index" style="color:#2563eb;">1</span> / 10</div>
+        <div class="chip"><span class="small">本輪得分</span><span class="big-num" id="span-round-score" style="color:#15803d;">0</span> / 2000</div>
+        <div class="chip"><span class="small">🏆 累計總分</span><span class="big-num" id="span-total-score" style="color:#db2777;">0</span></div>
+      </div>
+    </div>
+
+    <div class="rule-bar">
+      🎮 Kahoot! 計分規則：造句正確無誤 <b style="color:#15803d;">+200 分</b>；句子有錯誤的地方 <b style="color:#db2777;">−50 分</b>（累計制，最低 0 分不倒扣至負分）<br>
+      📌 動詞時態：目標搭配詞若為動詞，過去式／過去分詞／現在分詞皆視為正確。<br>
+      ✏️ 拼字與名詞單複數：若有拼錯或單複數用錯，系統會明確指出並請你修正，該題<b style="color:#db2777;">不予計分</b>喔！<br>
+      🐬 批改原則「寧可放過、不可錯殺」：規則無法百分之百確定為錯誤者一律判為正確、不扣分。<br>
+      🪸 so many／so much／so…that／so + 形容詞 是「程度副詞」，與 because 並用完全正確，系統不會誤判為「因為……所以……」；<br>
+      🐢 標示「💡 道地寫法建議」者只是更自然的說法，<b style="color:#15803d;">完全不扣分</b>喔！
+    </div>
+
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;flex-wrap:wrap;">
+        <div>
+          <span class="tag" style="background:var(--macaronPink);font-weight:800;font-size:.78rem;" id="practice-pos">n.</span>
+          <h4 id="practice-word" style="font-size:1.8rem;font-weight:900;margin-top:.5rem;">plastic</h4>
+        </div>
+        <button class="btn speak-btn" style="background:var(--macaronYellow);" onclick="speakModelAnswer()">🔊 聽參考範例音</button>
+      </div>
+      <p id="practice-ch" style="font-size:1.05rem;font-weight:800;color:var(--darkCoffeeLight);margin-top:.6rem;">中文翻譯：</p>
+    </div>
+
+    <div class="panel-yellow">
+      <div style="background:rgba(255,255,255,.95);padding:.9rem;border-radius:1rem;border:1px solid #fde68a;margin-bottom:.9rem;">
+        <span style="font-size:.75rem;font-weight:900;color:#b45309;">💡 必須使用這個搭配詞或句型：</span>
+        <p id="practice-target" style="font-size:1.15rem;font-weight:900;margin-top:.3rem;">target</p>
+        <p id="practice-target-ch" style="font-size:.85rem;font-weight:700;color:var(--darkCoffeeLight);">（中譯）</p>
+      </div>
+      <label style="display:block;font-weight:900;margin-bottom:.5rem;">✍️ 請用上面的搭配詞或句型試著造句吧！</label>
+      <textarea id="practice-input" rows="3" placeholder="請在此打字輸入你的英文句子..."></textarea>
+      <div style="display:flex;justify-content:flex-end;align-items:center;gap:1rem;margin-top:.9rem;flex-wrap:wrap;">
+        <div id="ai-loading-indicator" class="hidden" style="display:flex;align-items:center;gap:.5rem;color:#7c3aed;font-weight:800;font-size:.85rem;">
+          <span class="spinner"></span><span>AI 正在即時診斷並修復您的句子...</span>
+        </div>
+        <button class="btn submit-btn" id="btn-submit" onclick="submitAnswer()">💌 送出批改</button>
+      </div>
+    </div>
+
+    <div id="feedback-panel" class="panel hidden" style="border-color:var(--macaronBlue);">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;margin-bottom:.9rem;">
+        <div style="display:flex;align-items:center;gap:.7rem;">
+          <span id="feedback-emoji" style="font-size:1.8rem;">🎉</span>
+          <h4 id="feedback-title" style="font-size:1.25rem;font-weight:900;color:#15803d;">Excellent job!</h4>
+        </div>
+        <span id="feedback-score-delta" class="delta plus">+200 分</span>
+      </div>
+
+      <h5 style="font-size:.8rem;font-weight:900;margin-bottom:.6rem;">🔬 智慧型分析診斷明細：</h5>
+      <div class="diag-grid" style="margin-bottom:.9rem;">
+        <div class="diag" id="diagnostic-spelling">📌 <b>【拼字檢查】</b><br><span id="diagnostic-spelling-msg">符合常規 ✨</span></div>
+        <div class="diag" id="diagnostic-grammar">✍️ <b>【文法與結構】</b><br><span id="diagnostic-grammar-msg">結構正確 ✨</span></div>
+        <div class="diag" id="diagnostic-tense">🕒 <b>【時態與完整度】</b><br><span id="diagnostic-tense-msg">完整度良好 ✨</span></div>
+      </div>
+
+      <p id="feedback-text" style="background:rgba(226,241,255,.4);border:1px solid #bfdbfe;padding:.9rem;border-radius:1rem;font-weight:800;line-height:1.8;margin-bottom:.9rem;">分析結果...</p>
+
+      <div class="compare-grid">
+        <div class="cbox pink"><span class="lbl" style="color:#db2777;">💖 你的回答：</span><p id="compare-user"></p></div>
+        <div class="cbox green"><span class="lbl" style="color:#15803d;">✨ AI 智慧修正：</span><p id="compare-corrected"></p>
+          <p id="compare-suggestion" class="hidden" style="font-size:.8rem;background:#dcfce7;padding:.5rem;border-radius:.6rem;margin-top:.5rem;line-height:1.7;"></p></div>
+        <div class="cbox blue"><span class="lbl" style="color:#2563eb;">📘 課文參考範例：</span><p id="compare-model" style="font-style:italic;"></p></div>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;margin-top:1rem;">
+        <button class="btn next-btn" id="btn-print-now" style="display:none;background:var(--macaronGreen);border-color:#bbf7d0;" onclick="downloadHomeworkDoc()">📄 下載這 10 句作業（.doc）</button>
+        <button class="btn next-btn" id="btn-next-question" onclick="nextQuestion()">下一題 ➡️</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 結算 -->
+  <section id="section-review" class="hidden">
+    <div class="review-head">
+      <span style="font-size:2.2rem;">🏆</span>
+      <h2>本學習輪次精彩大結算</h2>
+      <p style="font-weight:800;color:var(--darkCoffeeLight);">辛苦了！一個塑膠袋能漂流千里，你的每一句練習也都在往流利英文前進 🛍️</p>
+    </div>
+
+    <div class="review-score-panel">
+      <h3 style="font-size:1.2rem;font-weight:900;">🎉 本輪 Kahoot! 最終得分</h3>
+      <span class="big" id="review-score">0 / 2000</span>
+      <p style="font-weight:800;">🏅 累計總分：<span id="review-total-score" style="color:#7e22ce;font-size:1.4rem;font-weight:900;">0</span></p>
+      <p style="font-weight:800;margin-top:.4rem;" id="review-grade-title"></p>
+      <div class="white-box">
+        <span style="color:#be185d;font-weight:900;display:block;margin-bottom:.4rem;">💡 建議重點加強的單字或搭配詞：</span>
+        <ul id="review-weakness-list" style="padding-left:1.2rem;"></ul>
+      </div>
+      <div class="white-box">
+        <span style="color:#7e22ce;font-weight:900;display:block;margin-bottom:.4rem;">💖 老師給你的自學建議：</span>
+        <p id="review-suggestion"></p>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.15rem;font-weight:900;">📝 本輪作答與例句完全對照總覽</h3>
+    <div id="review-sentences-container" style="display:flex;flex-direction:column;gap:1rem;"></div>
+
+    <div class="panel" style="border-color:#fbcfe8;background:linear-gradient(120deg,#fff7fb,#f0f9ff);">
+      <h3 style="font-size:1.15rem;font-weight:900;margin-bottom:.6rem;">📄 練習作業繳交：下載檔案上傳到 Google Classroom</h3>
+      <p style="font-weight:700;line-height:1.9;font-size:.92rem;margin-bottom:.8rem;">
+        請用下面的按鈕下載本輪 10 句的作業檔，再上傳到課程的 Google Classroom 作業區，老師才看得到你的練習紀錄喔！
+        作業檔已自動包含<b>班級／座號／姓名填寫欄</b>、<b>本輪得分</b>與<b>10 題完整對照</b>，不需要截圖。
+      </p>
+      <div class="white-box" style="background:#fff;">
+        <b>🐬 第一步：下載作業檔（下方兩種任選一種）</b><br>
+        ・<b>📄 Word 作業檔（.doc）</b>：可用 Word、Google 文件、WPS 開啟與編輯，適合要訂正後再繳交。<br>
+        ・<b>🌐 網頁作業檔（.html）</b>：檔案最小，手機、平板直接點開就能看，適合快速繳交。<br>
+        ・檔案會自動命名為 <b>B1L5造句作業_第○輪_日期</b>，下載後請改成
+          <b>班級_座號_姓名_L5_第○輪</b>（例：101_25_王小明_L5_第1輪）。<br><br>
+        <b>🪸 第二步：上傳到 Google Classroom</b><br>
+        1. 開啟 <b>Google Classroom</b> → 進入本班課程 → 點選「<b>課堂作業 (Classwork)</b>」。<br>
+        2. 找到本次作業「<b>B1 L5 搭配詞造句練習</b>」→ 點「<b>查看作業</b>」。<br>
+        3. 在「你的作業」點「<b>+ 新增或建立</b>」→ 選「<b>檔案</b>」→ 選取剛剛下載的作業檔。<br>
+        4. 最後務必按「<b>繳交 (Turn in)</b>」，看到「已繳交」才算完成！<br>
+        5. 可在私人訊息欄寫下這輪你覺得最難的搭配詞，老師會針對它給你回饋 💌<br><br>
+        <b>🐢 小提醒</b><br>
+        ・手機下載後，檔案通常在「下載」資料夾或「檔案」App 裡，上傳時從那裡選取即可。<br>
+        ・請在<b>按下「繼續挑戰下一輪」之前</b>先下載，換輪之後本輪紀錄就會重新計算喔！
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:1rem;">
+        <button class="btn next-btn" style="background:var(--macaronPink);border-color:#fbcfe8;" onclick="downloadHomeworkDoc()">📄 下載 Word 作業檔（.doc）</button>
+        <button class="btn next-btn" style="background:var(--macaronYellow);border-color:#fde68a;" onclick="downloadHomeworkHtml()">🌐 下載網頁作業檔（.html）</button>
+      </div>
+    </div>
+
+    <div class="end-btns">
+      <button class="btn gray-btn" onclick="endLearningSession()">🚪 結束本次學習</button>
+      <button class="btn blue-btn" onclick="startNextRound()">🔄 △ 繼續挑戰下一輪</button>
+    </div>
+  </section>
+</main>
+
+<footer>🛍️ 少用一個塑膠袋，多留一片乾淨海洋！你也能用練習寫出漂亮英文！ © 2026 No. 1 龍騰 B1 L5 單片閃卡與造句練習</footer>
+
+<script>
+// ==========================================
+// 題庫：32 題單字搭配詞 + 5 題進階句型
+// ==========================================
+const collocationPool = [
+  // ===== 1. 應用字彙 (1-16) =====
+  {id:1,category:"vocabulary",word:"plastic",pos:"adj. / n. [U]",ch:"塑膠（製）的；塑膠",target:"plastic bottles",target_ch:"塑膠瓶",syn:"衍生：plastic n. [U] 塑膠｜In the old days, many toys were made of wood or metal, but now most of them are made of plastic.",model_answer:"You should never put hot drinking water into plastic bottles or cups.",required_tokens:["plastic"],model_answer_ch:"你絕對不可以將熱開水放到塑膠瓶或塑膠杯裡。"},
+  {id:2,category:"vocabulary",word:"convenience",pos:"n. [U]",ch:"便利",target:"for the convenience of",target_ch:"為了……的方便",syn:"衍生：convenient adj. 方便的",model_answer:"Many shops post their business hours on their Facebook pages for the convenience of the public.",required_tokens:["convenience"],model_answer_ch:"為了大眾方便，許多商店會將營業時間張貼在它們的臉書頁面上。"},
+  {id:3,category:"vocabulary",word:"eagerly",pos:"adv.",ch:"渴望地",target:"eagerly waiting for",target_ch:"渴望地等待",syn:"衍生：eager adj. 渴望的｜be eager for + N",model_answer:"Rick is eagerly waiting for his boss to post the summer work schedule because he wants to plan his vacation.",required_tokens:["eagerly","waiting"],model_answer_ch:"Rick 渴望地等待他的老闆張貼夏季工作時間表，因為他想要計畫他的假期。"},
+  {id:4,category:"vocabulary",word:"surround",pos:"vt.",ch:"圍繞",target:"be surrounded by",target_ch:"被……圍繞",syn:"衍生：surroundings n. pl. 環境",model_answer:"The house is surrounded by tall trees, so nobody can see it from the road.",required_tokens:["surround","by"],model_answer_ch:"那棟房子被高聳的樹所圍繞，所以沒有人能從馬路上看到它。"},
+  {id:5,category:"vocabulary",word:"drift",pos:"vi.",ch:"漂流",target:"drift toward",target_ch:"漂向……",syn:"本項無同義／反義補充",model_answer:"After the captain fell asleep, the ship passed the harbor and then drifted toward the middle of the sea.",required_tokens:["drift","toward"],model_answer_ch:"在船長睡著之後，這艘船越過港口，接著漂向海中央。"},
+  {id:6,category:"vocabulary",word:"envy",pos:"vt. / n. [U]",ch:"羨慕",target:"envy sb.",target_ch:"羨慕某人",syn:"衍生：envy n. [U] 羨慕｜look with envy at + N",model_answer:"Christopher really envies his best friend, Patty, because she has been to so many countries.",required_tokens:["envy"],model_answer_ch:"Christopher 真的很羨慕他最好的朋友 Patty，因為她已經去過非常多國家。"},
+  {id:7,category:"vocabulary",word:"crowded",pos:"adj.",ch:"擠滿的；擁擠的",target:"be crowded with",target_ch:"擠滿了……",syn:"衍生：crowd n. [C] 人群",model_answer:"The Smith family is moving into a new house tomorrow, so their living room is crowded with boxes.",required_tokens:["crowded","with"],model_answer_ch:"Smith 一家人明天將搬入新家，所以他們的客廳擠滿了箱子。"},
+  {id:8,category:"vocabulary",word:"obviously",pos:"adv.",ch:"顯然",target:"obviously",target_ch:"顯然地",syn:"衍生：obvious adj. 明顯的｜It is obvious to sb. that...",model_answer:"The little girl is wearing a yellow dress and has painted her nails yellow. Obviously, she likes this color.",required_tokens:["obviously"],model_answer_ch:"這個小女孩穿著黃色的洋裝，還把指甲塗成黃色。顯然她喜歡這個顏色。"},
+  {id:9,category:"vocabulary",word:"product",pos:"n. [C]",ch:"產品",target:"food products",target_ch:"食品產品",syn:"衍生：produce vt. 製造｜production n. [U] 製造",model_answer:"This shop sells a variety of health and food products for babies.",required_tokens:["product"],model_answer_ch:"這家商店販售各式各樣嬰兒專用的健康產品和食品。"},
+  {id:10,category:"vocabulary",word:"consume",pos:"vt.",ch:"吃喝；消耗",target:"consume too much",target_ch:"吃喝／消耗太多",syn:"衍生：consumer n. [C] 消費者",model_answer:"Driving after you consume too much beer or wine can lead to a car crash.",required_tokens:["consume","much"],model_answer_ch:"飲用太多啤酒或葡萄酒後開車，可能會造成車禍。"},
+  {id:11,category:"vocabulary",word:"poisonous",pos:"adj.",ch:"有毒的",target:"be poisonous to",target_ch:"對……有毒",syn:"衍生：poison vt. 毒害；n. [C, U] 毒藥",model_answer:"Chocolate is delicious for most people, but did you know that it can be poisonous to dogs?",required_tokens:["poisonous","to"],model_answer_ch:"巧克力對大部分的人來說很美味，但你知道它對狗來說可能是有毒的嗎？"},
+  {id:12,category:"vocabulary",word:"substance",pos:"n. [C]",ch:"物質",target:"chemical substance",target_ch:"化學物質",syn:"本項無同義／反義補充",model_answer:"The police found a chemical substance at the murder scene and are doing tests on it right now.",required_tokens:["substance"],model_answer_ch:"警方在謀殺現場發現一種化學物質，現在正在對它進行檢驗。"},
+  {id:13,category:"vocabulary",word:"recycling",pos:"n. [U]",ch:"回收",target:"take sth. out for recycling",target_ch:"把某物拿去回收",syn:"衍生：recycle vt. 回收｜be recycled 被回收",model_answer:"After the party, Nick took all the empty bottles out for recycling.",required_tokens:["recycling"],model_answer_ch:"派對過後，Nick 把所有空瓶子拿到外面回收。"},
+  {id:14,category:"vocabulary",word:"harm",pos:"n. [U] / vt.",ch:"傷害",target:"do harm to",target_ch:"對……造成傷害",syn:"衍生：harmful adj. 有害的｜be harmful to",model_answer:"The cleaners were careful not to do any harm to the objects in the museum as they cleaned around them.",required_tokens:["harm","to"],model_answer_ch:"在清潔的時候，那些清潔工很小心避免損傷博物館裡的物品。"},
+  {id:15,category:"vocabulary",word:"environment",pos:"n.",ch:"自然環境；環境",target:"natural environment",target_ch:"自然環境",syn:"衍生：environmental adj. 自然環境的",model_answer:"It is every person's responsibility to save the earth's natural environment for our sons and daughters.",required_tokens:["environment"],model_answer_ch:"為我們未來的子女拯救地球的自然環境，是每一個人的責任。"},
+  {id:16,category:"vocabulary",word:"properly",pos:"adv.",ch:"適當地",target:"properly",target_ch:"適當地；好好地",syn:"衍生：proper adj. 適當的",model_answer:"Marc didn't complete the assignment properly, so the teacher asked him to do it again.",required_tokens:["properly"],model_answer_ch:"Marc 沒有好好地完成作業，所以老師要求他重做。"},
+
+  // ===== 2. 慣用語與片語 (17-21) =====
+  {id:17,category:"idiom",word:"come along",pos:"phr.",ch:"到達；出現",target:"come along",target_ch:"到達；出現",syn:"同 arrive; appear; show up",model_answer:"Many passengers are waiting on the platform for the train to come along.",required_tokens:["come","along"],model_answer_ch:"許多乘客正在月台上等待火車到站。"},
+  {id:18,category:"idiom",word:"pack...up",pos:"phr.",ch:"收拾；打包",target:"pack up",target_ch:"收拾；打包",syn:"補充：pack up 在英式英文中也可表「停止運作」（非正式）",model_answer:"The newlyweds packed up their things, excited about going on their honeymoon in Guam.",required_tokens:["pack","up"],model_answer_ch:"這對新婚夫妻收拾好他們的行李，對於要去關島度蜜月感到很興奮。"},
+  {id:19,category:"idiom",word:"on one's own",pos:"phr.",ch:"獨自；靠自己",target:"on one's own",target_ch:"獨自；靠自己",syn:"同 by oneself; alone",model_answer:"Claire has decided to travel in Europe for a year on her own after graduation.",required_tokens:["on","own"],model_answer_ch:"Claire 決定畢業後獨自在歐洲旅行一年。"},
+  {id:20,category:"idiom",word:"for a while",pos:"phr.",ch:"一陣子",target:"for a while",target_ch:"一陣子",syn:"本項無同義／反義補充",model_answer:"I haven't seen you for a while. What have you been up to?",required_tokens:["for","while"],model_answer_ch:"我有一陣子沒看到你了。你最近都在做什麼呢？"},
+  {id:21,category:"idiom",word:"end up",pos:"phr.",ch:"最後結果是",target:"end up",target_ch:"最後結果是",syn:"用法：end up + adj. / V-ing / (as) N / 介系詞片語",model_answer:"Sam was arrested by the police for stealing a car and ended up in prison.",required_tokens:["end","up"],model_answer_ch:"Sam 因為偷車被警方逮捕，最後入獄坐牢。"},
+
+  // ===== 3. 認字與補充 (22-32) =====
+  {id:22,category:"recognize",word:"howl",pos:"vi.",ch:"（風）呼嘯；狂嚎",target:"howl in the middle of the night",target_ch:"在半夜狂嚎",syn:"本項無同義／反義補充",model_answer:"A wolf howling in the middle of the night is scary, especially when there is a full moon.",required_tokens:["howl"],model_answer_ch:"一隻狼在半夜狂嚎很可怕，尤其是在滿月的時候。"},
+  {id:23,category:"recognize",word:"current",pos:"n. [C] / adj.",ch:"水流；現在的",target:"against the current",target_ch:"逆流",syn:"字詞搭配：current prices 時價／current employer 現任雇主",model_answer:"You will lose your strength quickly if you swim in the sea against the current.",required_tokens:["current"],model_answer_ch:"如果你在海裡逆流而游，你的力氣會很快耗盡。"},
+  {id:24,category:"recognize",word:"tunnel",pos:"n. [C]",ch:"隧道",target:"disappear into the tunnel",target_ch:"消失在隧道裡",syn:"成語：light at the end of the tunnel 苦盡甘來",model_answer:"The train is about to disappear into the longest tunnel in the world.",required_tokens:["tunnel"],model_answer_ch:"這列火車即將消失在全世界最長的隧道裡。"},
+  {id:25,category:"recognize",word:"chamber",pos:"n. [C]",ch:"腔室",target:"four chambers",target_ch:"四個腔室",syn:"本項無同義／反義補充",model_answer:"The human heart has four chambers.",required_tokens:["chamber"],model_answer_ch:"人的心臟有四個腔室。"},
+  {id:26,category:"recognize",word:"swallow",pos:"vt.",ch:"吞",target:"swallow food",target_ch:"吞嚥食物",syn:"本項無同義／反義補充",model_answer:"I have a very sore throat. It hurts when I try to swallow food.",required_tokens:["swallow"],model_answer_ch:"我的喉嚨很痛。當我試著吞嚥食物時就會痛。"},
+  {id:27,category:"recognize",word:"nutritious",pos:"adj.",ch:"營養的",target:"a nutritious diet",target_ch:"營養的飲食",syn:"衍生：nutrition n. [U] 營養｜good/poor nutrition",model_answer:"A nutritious diet is important for anyone who wants to stay healthy.",required_tokens:["nutritious"],model_answer_ch:"對任何想保持健康的人來說，營養的飲食都很重要。"},
+  {id:28,category:"recognize",word:"decompose",pos:"vi.",ch:"分解",target:"decompose for some time",target_ch:"分解了一段時間",syn:"本項無同義／反義補充",model_answer:"The police found a dead body in the woods. It had been decomposing for some time.",required_tokens:["decompos"],model_answer_ch:"警方在樹林裡發現一具屍體，它已經分解了一段時間。"},
+  {id:29,category:"recognize",word:"pinch",pos:"n. [C]",ch:"捏；擰",target:"give oneself a pinch",target_ch:"捏自己一下",syn:"本項無同義／反義補充",model_answer:"Jimmy gave himself a pinch to make sure that he was not dreaming.",required_tokens:["pinch"],model_answer_ch:"Jimmy 捏了自己一下，以確認他不是在作夢。"},
+  {id:30,category:"recognize",word:"littering",pos:"n. [U]",ch:"亂丟垃圾",target:"littering",target_ch:"亂丟垃圾",syn:"衍生：litter vt. vi. 亂丟垃圾；n. [U] 垃圾",model_answer:"Littering in the park is not allowed, and people who do it will be fined.",required_tokens:["litter"],model_answer_ch:"在公園裡亂丟垃圾是不被允許的，這麼做的人將會被罰款。"},
+  {id:31,category:"recognize",word:"recycling plant",pos:"n. [C]",ch:"回收場",target:"recycling plant",target_ch:"回收場",syn:"本項無同義／反義補充",model_answer:"The used bottles were sent to a recycling plant and turned into new products.",required_tokens:["recycling","plant"],model_answer_ch:"這些用過的瓶子被送到回收場，並製成新的產品。"},
+  {id:32,category:"recognize",word:"misuse",pos:"vt.",ch:"錯誤使用",target:"misuse drugs",target_ch:"錯誤使用藥物",syn:"本項無同義／反義補充",model_answer:"Do not misuse drugs as this can be deadly.",required_tokens:["misuse"],model_answer_ch:"不要錯誤使用藥物，因為這可能會致命。"}
+];
+
+// ===== 4. 進階句型：使役動詞 (33-37) =====
+const sentencePatternPool = [
+  {id:33,category:"grammar",word:"make + O + VR",pos:"句型",ch:"迫使／使得某人做某事",target:"make + O + 原形動詞",target_ch:"使某人做某事（強制性最高）",syn:"被動：be made to VR｜比較 have（安排）、let（允許）",model_answer:"When we eat seafood, the poisonous substances from the plastic make us feel sick.",required_tokens:["make"],model_answer_ch:"當我們吃海鮮時，來自塑膠的有毒物質會讓我們覺得不舒服。"},
+  {id:34,category:"grammar",word:"have + O + VR",pos:"句型",ch:"安排／吩咐某人做某事",target:"have + O + 原形動詞",target_ch:"吩咐某人做某事（上對下的交辦）",syn:"主詞與受詞間具主從關係，如老闆／員工、老師／學生",model_answer:"The boss had his driver pick him up at 6:00 p.m. outside the hotel.",required_tokens:["ha"],model_answer_ch:"老闆吩咐司機晚上六點到飯店外面接他。"},
+  {id:35,category:"grammar",word:"let + O + VR",pos:"句型",ch:"允許／讓某人做某事",target:"let + O + 原形動詞",target_ch:"讓某人做某事",syn:"課文出處：they packed everything up and let me stay there alone!",model_answer:"When it was getting dark, they packed everything up and let me stay there alone!",required_tokens:["let"],model_answer_ch:"當天色漸暗，他們收拾好所有東西，就讓我獨自留在那裡！"},
+  {id:36,category:"grammar",word:"get + O + to V",pos:"句型",ch:"設法讓某人做某事",target:"get + O + to + 原形動詞",target_ch:"說服／設法讓某人做某事",syn:"半使役動詞，只有 get 需要接 to V",model_answer:"I finally got my little brother to clean his room.",required_tokens:["to"],model_answer_ch:"我終於讓我的弟弟去打掃他的房間。"},
+  {id:37,category:"grammar",word:"have/get + O + p.p.",pos:"句型",ch:"請人把某事做好",target:"have/get + O + 過去分詞",target_ch:"讓某事被完成（請人代勞）",syn:"另有 make + O + p.p.（make oneself heard/understood）與 let + O + be p.p.",model_answer:"I had my bike repaired at the shop near school.",required_tokens:[],model_answer_ch:"我把我的腳踏車拿到學校附近的店裡修好了。"}
+];
+
+const fullDataset = [...collocationPool, ...sentencePatternPool];
+
+// ========== Kahoot! 常數 ==========
+const SCORE_CORRECT = 200, SCORE_PENALTY = 50, ROUND_MAX = 2000;
+
+// ========== SPA 狀態機 ==========
+let activeTab = 'flashcards';
+let currentFlashcardIndex = 0;
+let filteredCards = [...fullDataset];
+let currentRound = 1, currentQuestionIndex = 0, roundScore = 0, totalScore = 0;
+let currentRoundQuestions = [], testedCollocationIds = [], testedPatternIds = [], roundReportData = [];
+
+window.onload = function(){
+  updateFlashcardUI();
+  setupNewRoundQuestions();
+  updatePracticeUI();
+  const canvas = document.getElementById('fireworksCanvas');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  window.addEventListener('resize', ()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', ()=>{
+    const y = window.scrollY;
+    const nav = document.querySelector('nav');
+    if(y > lastY + 6 && y > 90){
+      nav.classList.add('nav-hidden');     // 往下捲：標題列往上收回，不遮住畫面
+      collapseHero();
+    } else if(y < lastY - 6 || y < 40){
+      nav.classList.remove('nav-hidden');  // 往回拉：標題列重新出現
+      if(y < 40 && !suppressHeroAuto) expandHero();  // 拉到最上方：首頁導言區自動出現
+    }
+    lastY = y;
+  }, {passive:true});
+  // 以觸控事件直接綁定發音鍵，手機才會視為有效的使用者手勢
+  document.querySelectorAll('.speak-btn').forEach(btn=>{
+    btn.addEventListener('touchend', e=>{
+      e.preventDefault(); e.stopPropagation();
+      unlockSpeech();
+      btn.click();
+    }, {passive:false});
+  });
+  if('speechSynthesis' in window){
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged=loadVoices;
+    ['touchstart','click'].forEach(ev=>document.addEventListener(ev, unlockSpeech, {once:true, passive:true}));
+  }
+};
+
+function heroIsHidden(){
+  const hero=document.getElementById('home-hero');
+  return hero.classList.contains('collapsed') || hero.style.display==='none';
+}
+function toggleHeroManual(){
+  if(heroIsHidden()) expandHero(); else collapseHero();
+}
+function collapseHero(){
+  const hero=document.getElementById('home-hero');
+  hero.classList.add('collapsed');
+  hero.style.display='none';                    // 直接隱藏，確保按壓後一定收起
+  document.getElementById('hero-arrow').textContent='▼';
+}
+function expandHero(){
+  const hero=document.getElementById('home-hero');
+  hero.style.display='block';
+  // 強制重繪後再移除 collapsed，讓展開動畫順暢
+  void hero.offsetWidth;
+  hero.classList.remove('collapsed');
+  document.getElementById('hero-arrow').textContent='▲';
+}
+function startLearningProcess(t){ activeTab='__none__'; tabOpen=false; switchTab(t); }
+
+let tabOpen = true;   // 目前模組是否展開
+let suppressHeroAuto = false;  // 剛按下模組時，暫時不自動展開首頁導言
+function hideAllSections(){
+  ['flashcards','practice','review'].forEach(s=>document.getElementById('section-'+s).classList.add('hidden'));
+}
+function showActiveSection(){
+  hideAllSections();
+  if(activeTab==='flashcards'){
+    document.getElementById('section-flashcards').classList.remove('hidden');
+  } else {
+    if(currentQuestionIndex>=10) document.getElementById('section-review').classList.remove('hidden');
+    else document.getElementById('section-practice').classList.remove('hidden');
+  }
+}
+// 按壓標題 → 該模組自動收回；再按壓一次 → 模組自動再出現
+function switchTab(tabName){
+  const sameTab = (activeTab === tabName);
+  if(sameTab && tabOpen){
+    tabOpen = false;
+    hideAllSections();
+    expandHero();                 // 模組收起時，導言區自動回來當首頁
+    document.getElementById('tab-'+tabName).classList.remove('active');
+    showToast('📕 已收起【' + (tabName==='flashcards'?'閃卡自學模式':'搭配詞造句遊戲') + '】，再按一次標題即可展開');
+    return;
+  }
+  activeTab = tabName;
+  tabOpen = true;
+  collapseHero();
+  ['flashcards','practice'].forEach(t=>{
+    document.getElementById('tab-'+t).classList.toggle('active', t===tabName && tabOpen);
+  });
+  showActiveSection();
+  suppressHeroAuto = true;
+  window.scrollTo({top:0, behavior:'smooth'});
+  setTimeout(()=>{ suppressHeroAuto = false; }, 1600);
+}
+
+// ========== 閃卡（一次只出現一張） ==========
+function filterFlashcards(){
+  const v=document.getElementById('flashcard-filter').value;
+  document.getElementById('flashcard-element').classList.remove('flipped');
+  filteredCards = (v==='all') ? [...fullDataset] : fullDataset.filter(c=>c.category===v);
+  currentFlashcardIndex=0; updateFlashcardUI();
+}
+function updateFlashcardUI(){
+  if(filteredCards.length===0) return;
+  const c=filteredCards[currentFlashcardIndex];
+  document.getElementById('card-pos-front').textContent=c.pos;
+  document.getElementById('card-word-front').textContent=c.word;
+  document.getElementById('card-index-indicator').textContent=`${currentFlashcardIndex+1} / ${filteredCards.length}`;
+  document.getElementById('card-ch-back').textContent=c.ch;
+  document.getElementById('card-target-back').textContent=c.target;
+  document.getElementById('card-target-ch-back').textContent=`(${c.target_ch})`;
+  document.getElementById('card-example-back').textContent=c.model_answer;
+  document.getElementById('card-example-ch-back').textContent=c.model_answer_ch || "";
+  document.getElementById('card-syn-back').textContent=(c.syn && c.syn!=="—")?c.syn:"本項無同義／反義補充";
+}
+function flipCurrentCard(){ stopSpeaking(); document.getElementById('flashcard-element').classList.toggle('flipped'); }
+function prevFlashcard(){
+  stopSpeaking();
+  const card=document.getElementById('flashcard-element'); card.classList.remove('flipped');
+  setTimeout(()=>{ currentFlashcardIndex = currentFlashcardIndex>0 ? currentFlashcardIndex-1 : filteredCards.length-1; updateFlashcardUI(); },150);
+}
+function nextFlashcard(){
+  stopSpeaking();
+  const card=document.getElementById('flashcard-element'); card.classList.remove('flipped');
+  setTimeout(()=>{ currentFlashcardIndex = currentFlashcardIndex<filteredCards.length-1 ? currentFlashcardIndex+1 : 0; updateFlashcardUI(); },150);
+}
+
+// ========== 語音（手機／電腦／平板通用，0.9 倍速） ==========
+let voicesReady=false, speechUnlocked=false;
+function loadVoices(){
+  if(!('speechSynthesis' in window)) return [];
+  const v=window.speechSynthesis.getVoices()||[];
+  if(v.length) voicesReady=true;
+  return v;
+}
+function pickVoice(){
+  const voices=loadVoices();
+  if(!voices.length) return null;              // iOS 尚未載入語音時，交給系統預設，避免完全不發音
+  const en=voices.filter(v=>v.lang && v.lang.toLowerCase().replace('_','-').startsWith('en'));
+  if(!en.length) return null;
+  const preferred=en.find(v=>/samantha|karen|moira|tessa|zira|female|google us english|susan/i.test(v.name));
+  return preferred || en.find(v=>v.default) || en[0];
+}
+// 手機（iOS/Android）必須在「使用者點擊當下」同步呼叫 speak，才會發出聲音
+function unlockSpeech(){
+  if(speechUnlocked || !('speechSynthesis' in window)) return;
+  try{
+    const warm=new SpeechSynthesisUtterance(' ');
+    warm.volume=0; warm.rate=1; warm.lang='en-US';
+    window.speechSynthesis.speak(warm);
+    speechUnlocked=true;
+  }catch(e){}
+}
+// ===== 朗讀引擎：整句一次唸完，絕不切割、不斷句 =====
+let speakSeq=0, keepAliveTimer=null;
+
+function stopSpeaking(){
+  speakSeq++;
+  if(keepAliveTimer){ clearInterval(keepAliveTimer); keepAliveTimer=null; }
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+}
+
+function speakText(text){
+  if(!('speechSynthesis' in window)){
+    showToast("⚠️ 您的裝置瀏覽器不支援語音朗讀，建議改用 Chrome 或 Safari"); return;
+  }
+  const synth=window.speechSynthesis;
+  const sentence=String(text).replace(/\s+/g,' ').trim();
+  if(!sentence) return;
+
+  unlockSpeech();
+  // 清掉上一次的朗讀；cancel 之後需要極短的喘息，引擎才會乾淨地接受新句子
+  try{ synth.cancel(); }catch(e){}
+  if(keepAliveTimer){ clearInterval(keepAliveTimer); keepAliveTimer=null; }
+  const mySeq=++speakSeq;
+
+  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+              (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+
+  // 整句建立「一個」utterance，不做任何切割，語調與連音才自然流暢
+  const u=new SpeechSynthesisUtterance(sentence);
+  u.lang='en-US'; u.rate=0.9; u.pitch=1; u.volume=1;
+  const v=pickVoice();
+  if(v && (!isIOS || voicesReady)) u.voice=v;
+
+  u.onstart=()=>{
+    // Android / 桌面 Chrome 會在播放途中自行 pause，導致句子唸一半就停。
+    // 這裡只做 resume，不 cancel、不重送，所以句子不會被切斷。
+    if(keepAliveTimer) clearInterval(keepAliveTimer);
+    keepAliveTimer=setInterval(()=>{
+      if(mySeq!==speakSeq){ clearInterval(keepAliveTimer); keepAliveTimer=null; return; }
+      try{
+        if(synth.paused) synth.resume();
+        if(!synth.speaking && !synth.pending){ clearInterval(keepAliveTimer); keepAliveTimer=null; }
+      }catch(e){}
+    }, 250);
+  };
+  const cleanup=()=>{
+    if(keepAliveTimer){ clearInterval(keepAliveTimer); keepAliveTimer=null; }
+  };
+  u.onend=cleanup;
+  u.onerror=(e)=>{
+    cleanup();
+    if(e && e.error && e.error!=='interrupted' && e.error!=='canceled'){
+      showToast("⚠️ 播放失敗：請確認手機側邊「靜音鍵」已關閉、音量已開，再點一次");
+    }
+  };
+
+  const fire=()=>{
+    if(mySeq!==speakSeq) return;
+    try{ synth.resume(); }catch(e){}
+    try{ synth.speak(u); }catch(e){}
+  };
+
+  // iOS 必須在點擊的同一個同步流程中呼叫 speak，否則會靜音；
+  // 其他平台給 cancel() 一個極短的緩衝，避免新句子被前一次的取消動作吃掉。
+  if(isIOS) fire();
+  else setTimeout(fire, 60);
+}
+function speakWord(e){ if(e) e.stopPropagation(); speakText(filteredCards[currentFlashcardIndex].word); }
+function speakExample(e){ if(e) e.stopPropagation(); speakText(filteredCards[currentFlashcardIndex].model_answer); }
+function speakModelAnswer(){ speakText(currentRoundQuestions[currentQuestionIndex].model_answer); }
+
+// ========== 9 + 1 抽題規則 ==========
+function setupNewRoundQuestions(){
+  let avail = collocationPool.filter(i=>!testedCollocationIds.includes(i.id));
+  if(avail.length<9){ testedCollocationIds=[]; avail=[...collocationPool]; }
+  const picked = shuffleArray(avail).slice(0,9);
+  picked.forEach(i=>testedCollocationIds.push(i.id));
+  let ap = sentencePatternPool.filter(i=>!testedPatternIds.includes(i.id));
+  if(ap.length<1){ testedPatternIds=[]; ap=[...sentencePatternPool]; }
+  const pattern = shuffleArray(ap)[0];
+  testedPatternIds.push(pattern.id);
+  currentRoundQuestions=[...picked, pattern];
+}
+function shuffleArray(a){ const arr=[...a]; for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];} return arr; }
+
+function updatePracticeUI(){
+  if(!currentRoundQuestions.length) return;
+  const q=currentRoundQuestions[currentQuestionIndex];
+  document.getElementById('span-round-num').textContent=currentRound;
+  document.getElementById('span-question-index').textContent=currentQuestionIndex+1;
+  document.getElementById('span-round-score').textContent=roundScore;
+  document.getElementById('span-total-score').textContent=totalScore;
+  document.getElementById('practice-pos').textContent=q.pos;
+  document.getElementById('practice-word').textContent=q.word;
+  document.getElementById('practice-ch').textContent=`中文翻譯：${q.ch}`;
+  document.getElementById('practice-target').textContent=q.target;
+  document.getElementById('practice-target-ch').textContent=`（${q.target_ch}）`;
+  const inp=document.getElementById('practice-input');
+  inp.value=""; inp.disabled=false;
+  document.getElementById('btn-submit').disabled=false;
+  document.getElementById('feedback-panel').classList.add('hidden');
+  document.getElementById('ai-loading-indicator').classList.add('hidden');
+  document.getElementById('compare-suggestion').classList.add('hidden');
+}
+
+// ========== Levenshtein ==========
+function getLevenshteinDistance(a,b){
+  const m=[]; for(let i=0;i<=b.length;i++) m[i]=[i];
+  for(let j=0;j<=a.length;j++) m[0][j]=j;
+  for(let i=1;i<=b.length;i++) for(let j=1;j<=a.length;j++){
+    m[i][j]= b.charAt(i-1)===a.charAt(j-1) ? m[i-1][j-1] : Math.min(m[i-1][j-1]+1,m[i][j-1]+1,m[i-1][j]+1);
+  }
+  return m[b.length][a.length];
+}
+
+// ========== 動詞時態白名單（過去式／過去分詞／現在分詞皆算正確） ==========
+const IRREGULAR_FORMS = {
+  have:["have","has","had","having"], get:["get","gets","got","gotten","getting"],
+  make:["make","makes","made","making"], let:["let","lets","letting"],
+  come:["come","comes","came","coming"], take:["take","takes","took","taken","taking"],
+  eat:["eat","eats","ate","eaten","eating"], find:["find","finds","found","finding"],
+  swim:["swim","swims","swam","swum","swimming"], buy:["buy","buys","bought","buying"],
+  put:["put","puts","putting"], sell:["sell","sells","sold","selling"],
+  feel:["feel","feels","felt","feeling"], drink:["drink","drinks","drank","drunk","drinking"],
+  lose:["lose","loses","lost","losing"], send:["send","sends","sent","sending"],
+  do:["do","does","did","done","doing"], be:["be","is","am","are","was","were","been","being"],
+  swallow:["swallow","swallows","swallowed","swallowing"],
+  drift:["drift","drifts","drifted","drifting"], envy:["envy","envies","envied","envying"],
+  consume:["consume","consumes","consumed","consuming"], surround:["surround","surrounds","surrounded","surrounding"],
+  howl:["howl","howls","howled","howling"], pinch:["pinch","pinches","pinched","pinching"],
+  decompose:["decompose","decomposes","decomposed","decomposing"],
+  misuse:["misuse","misuses","misused","misusing"], recycle:["recycle","recycles","recycled","recycling"],
+  litter:["litter","litters","littered","littering"], pack:["pack","packs","packed","packing"],
+  end:["end","ends","ended","ending"], harm:["harm","harms","harmed","harming"],
+  wait:["wait","waits","waited","waiting"], clean:["clean","cleans","cleaned","cleaning"],
+  repair:["repair","repairs","repaired","repairing"], crowd:["crowd","crowds","crowded","crowding"]
+};
+function getVerbFormsForToken(token){
+  const t=token.toLowerCase();
+  if(IRREGULAR_FORMS[t]) return IRREGULAR_FORMS[t];
+  const forms=new Set([t, t+"s"]);
+  if(/e$/.test(t)){ forms.add(t+"d"); forms.add(t.slice(0,-1)+"ing"); }
+  else if(/[^aeiou]y$/.test(t)){ forms.add(t.slice(0,-1)+"ied"); forms.add(t.slice(0,-1)+"ies"); forms.add(t+"ing"); }
+  else if(/[^aeiou][aeiou][^aeiouwxy]$/.test(t) && t.length<=5){
+    const d=t+t.slice(-1); forms.add(d+"ed"); forms.add(d+"ing"); forms.add(t+"ed"); forms.add(t+"ing");
+  } else { forms.add(t+"ed"); forms.add(t+"ing"); }
+  forms.add(t+"es");
+  return [...forms];
+}
+// 只有「動詞」才享有時態寬容；名詞、形容詞、副詞一律必須拼字正確（含單複數）
+const VERB_TOKENS = new Set(["have","get","make","let","come","take","eat","find","swim","buy","put","sell",
+  "feel","drink","lose","send","do","be","swallow","drift","envy","consume","surround","howl","pinch",
+  "decompose","misuse","recycle","litter","pack","end","harm","wait","clean","repair","crowd","howling"]);
+function isVerbToken(t){ return VERB_TOKENS.has(t.toLowerCase()) || !!IRREGULAR_FORMS[t.toLowerCase()]; }
+function matchesAnyForm(studentLower, token){
+  const t=token.toLowerCase();
+  if(studentLower.includes(t)) return true;
+  if(!isVerbToken(t)) return false;          // 非動詞 → 不容許變形，拼字／單複數必須正確
+  return getVerbFormsForToken(t).some(f=>studentLower.includes(f));
+}
+// 名詞單複數比對：回傳 "plural_needed" / "singular_needed" / null
+function checkNumberAgreement(studentLower, token){
+  const t=token.toLowerCase();
+  if(isVerbToken(t) || t.length<4) return null;
+  if(studentLower.includes(t)) return null;
+  if(/(s|es)$/.test(t)){
+    const sing = t.endsWith("es") && /(ch|sh|s|x|z)es$/.test(t) ? t.slice(0,-2) : t.slice(0,-1);
+    if(sing.length>2 && new RegExp("\\b"+sing+"\\b").test(studentLower)) return {type:"plural", singular:sing, plural:t};
+  } else {
+    if(new RegExp("\\b"+t+"(s|es)\\b").test(studentLower)) return {type:"singular", singular:t};
+  }
+  return null;
+}
+
+// ========== AI 批改（可注入 API Key，無 Key 自動降級） ==========
+async function requestGeminiCorrection(studentSentence, targetPhrase){
+  const apiKey = "";
+  if(!apiKey) return fallbackLocalCorrectionWithExplanation(studentSentence, targetPhrase);
+  return fallbackLocalCorrectionWithExplanation(studentSentence, targetPhrase);
+}
+// ===== 常見英文字白名單：抓出像 heen / hte 這類非目標搭配詞的錯字 =====
+const COMMON_WORDS = new Set(("a an the and or but so because although though while when if then than that this these those there here " +
+"i you he she it we they me him her us them my your his its our their mine yours hers ours theirs myself yourself himself herself itself " +
+"ourselves themselves oneself who whom whose which what where why how all any both each every few many much more most other others some such no none nor not only own same too very " +
+"be am is are was were been being have has had having do does did doing done will would shall should can could may might must ought need dare used " +
+"get gets got gotten getting make makes made making take takes took taken taking give gives gave given giving go goes went gone going come comes came coming " +
+"see sees saw seen seeing know knows knew known knowing think thinks thought thinking say says said saying tell tells told telling find finds found finding " +
+"want wants wanted wanting use uses using work works worked working call calls called calling try tries tried trying ask asks asked asking " +
+"needs needed needing feel feels felt feeling become becomes became becoming leave leaves left leaving put puts putting mean means meant meaning " +
+"keep keeps kept keeping let lets letting begin begins began begun beginning seem seems seemed help helps helped helping talk talks talked talking " +
+"turn turns turned turning start starts started starting show shows showed shown showing hear hears heard hearing play plays played playing run runs ran running " +
+"move moves moved moving live lives lived living believe believes believed hold holds held holding bring brings brought bringing happen happens happened write writes wrote written writing " +
+"provide sit sits sat sitting stand stands stood standing lose loses lost losing pay pays paid paying meet meets met meeting include includes continue continues " +
+"learn learns learned learnt change changes changed changing lead leads understand understands watch watches watched watching follow follows followed following " +
+"stop stops stopped stopping create creates speak speaks spoke spoken allow allows add adds spend spends spent spending grow grows open opens opened " +
+"walk walks walked walking win wins won offer offers remember remembers love loves loved consider considers appear appears buy buys bought buying " +
+"wait waits waited waiting serve serves die dies died send sends sent sending build builds built stay stays stayed staying " +
+"fall falls fell fallen cut cuts cutting reach reaches reached remain remains suggest suggests raise raises pass passes passed sell sells sold selling " +
+"require requires report reports decide decides pull pulls clean cleans cleaned cleaning cleaner cleaners eat eats ate eaten eating drink drinks drank drunk drinking " +
+"swim swims swam swum swimming sleep sleeps slept wear wears wore worn throw throws threw thrown driving drive drives drove driven ride rides rode ridden " +
+"complete completes completed assignment assignments post posts posted schedule plan plans planning vacation captain harbor middle sea ocean beach " +
+"time times year years people way ways day days man woman men women child children world life lives hand hands eye eyes place places part parts " +
+"week weeks case cases point points government company companies number numbers group groups problem problems fact facts thing things " +
+"home school schools student students teacher teachers class classes book books water food foods air land fish birds bird animal animals dog dogs cat cats " +
+"tree trees flower flowers plant plants plastic bag bags bottle bottles cup cups box boxes object objects " +
+"money friend friends family families mother father parent parents son sons daughter daughters brother brothers sister sisters boy boys girl girls baby babies " +
+"city cities country countries town towns house houses room rooms door doors window windows car cars bus train trains plane ship ships boat boats bike bikes " +
+"street streets road roads park parks store stores shop shops market markets restaurant hospital police doctor nurse job jobs boss driver passenger passengers " +
+"platform museum prison moon sun star stars sky rain wind night nights morning tomorrow yesterday today summer winter spring autumn hour hours minute minutes second seconds " +
+"good bad big small large little long short high low new old young great different important able early late easy hard difficult strong weak " +
+"happy sad angry scary scared beautiful delicious healthy dangerous dirty clean full empty hot cold warm cool dark bright heavy light fast slow quick " +
+"careful careless famous popular free busy quiet noisy nice kind friendly lovely wonderful terrible awful excellent perfect right wrong true false real " +
+"several enough first second third last next another one two three four five six seven eight nine ten " +
+"up down out on off over under above below into onto from to at by for with within without about against between among through during before after since until " +
+"again also just still even yet already always never often sometimes usually seldom rarely once twice ever almost nearly quite rather really actually finally " +
+"especially probably perhaps maybe however therefore moreover besides instead unless whether whereas as " +
+"well better best worse worst less least " +
+"please thank thanks sorry yes yeah okay hi hello bye goodbye " +
+"mr mrs ms dr st tv dvd cd usa uk europe").split(/\s+/).filter(Boolean));
+
+function looksLikeTypo(word){
+  const w=String(word).toLowerCase();
+  if(w.length<4) return false;
+  if(COMMON_WORDS.has(w)) return false;
+  const stems=[w.replace(/s$/,""), w.replace(/es$/,""), w.replace(/ed$/,""), w.replace(/ing$/,""),
+               w.replace(/ied$/,"y"), w.replace(/ies$/,"y"), w.replace(/ing$/,"e"), w.replace(/ed$/,"e"),
+               w.replace(/er$/,""), w.replace(/ly$/,"")];
+  if(stems.some(s=>s.length>2 && COMMON_WORDS.has(s))) return false;
+  // 與常用字僅差一個字母 → 判定為錯字（heen→been、hte→the）
+  for(const cand of COMMON_WORDS){
+    if(Math.abs(cand.length-w.length)>1) continue;
+    if(getLevenshteinDistance(cand, w)===1) return {typo:word, suggest:cand};
+  }
+  return false;   // 不確定一律放過，符合「寧可放過、不可錯殺」
+}
+
+// ===== 批改規則庫（原則：寧可放過、不可錯殺）=====
+// level:"error" → 百分之百確定是錯，才扣分
+// level:"style" → 僅提供更道地的寫法建議，一律【不扣分】
+const CMP_DOUBLE = ["taller","bigger","smaller","faster","slower","higher","lower","longer","shorter",
+  "stronger","weaker","older","younger","nicer","happier","easier","harder","richer","poorer",
+  "cheaper","warmer","colder","hotter","cooler","heavier","lighter","darker","brighter","safer","closer"];
+
+const REVISION_RULES = [
+  // ── 確定錯誤：比較級／最高級重複 ──
+  {level:"error", re:/\bthe most (\w+)est\b/gi, to:"the most $1", why:"最高級不可同時使用 most 與 -est"},
+  {level:"error",
+   re:new RegExp("\\bmore (" + CMP_DOUBLE.join("|") + ")\\b","gi"),
+   to:(m,w)=>w, why:"比較級不可同時使用 more 與 -er"},
+
+  // ── 確定錯誤：及物動詞誤加介系詞 ──
+  {level:"error", re:/\bdiscuss(es|ed|ing)?\s+about\b/gi, to:(m,sfx)=>"discuss"+(sfx||""), why:"discuss 為及物動詞，後面不加 about"},
+  {level:"error", re:/\bmention(s|ed|ing)?\s+about\b/gi, to:(m,sfx)=>"mention"+(sfx||""), why:"mention 為及物動詞，後面不加 about"},
+  {level:"error", re:/\bemphasize(s|d)?\s+on\b/gi, to:(m,sfx)=>"emphasize"+(sfx||""), why:"emphasize 為及物動詞，後面不加 on"},
+  {level:"error", re:/\baccording to my opinion\b/gi, to:"in my opinion", why:"正確搭配為 in my opinion"},
+  {level:"error", re:/\bcan able to\b/gi, to:"can", why:"can 與 be able to 不可並用"},
+  {level:"error", re:/\baccept to (\w+)/gi, to:"agree to $1", why:"accept 不接 to V；表答應用 agree to V"},
+  {level:"error", re:/\bfor to (\w+)/gi, to:"to $1", why:"英文沒有 for to V 的用法"},
+  {level:"error", re:/\bwithout to (\w+)/gi, to:"without $1ing", why:"without 後須接動名詞 V-ing"},
+
+  // ── 確定錯誤：have difficulty 後接 to V ──
+  {level:"error", re:/\bdifficulty to (\w+)/gi, to:"difficulty $1ing", why:"have difficulty 後接動名詞 V-ing，不接 to V"},
+
+  // ── 確定錯誤：助動詞後須接原形 be ──
+  {level:"error", re:/\b(can|will|shall|should|must|may|might|could|would)\s+(is|are|am|was|were)\b/gi,
+   to:"$1 be", why:"助動詞後必須接原形動詞 be"},
+
+  // ── 確定錯誤：主詞動詞一致 ──
+  {level:"error", re:/\b(he|she|it)\s+have\b/gi, to:"$1 has", why:"第三人稱單數主詞須用 has"},
+  {level:"error", re:/\b(they|we|you)\s+has\b/gi, to:"$1 have", why:"複數主詞須用 have"},
+
+  // ── 確定錯誤：中文式「因為……所以……」 ──
+  // ⚠️ so many / so much / so few / so little / so that / so far / so long / so as /
+  //    so + 形容詞 都是「程度副詞」，與 because 並存完全正確，絕不可誤判
+  //    （例：because she has been to so many countries ← 必須判為正確）
+  {level:"error",
+   re:/\bbecause\b[^.!?]*?,\s*so\s+(?!many\b|much\b|few\b|little\b|that\b|far\b|long\b|as\b|to\b|very\b)(?=(?:i|you|he|she|it|we|they|the|this|that|these|those|there|my|his|her|its|our|their|[A-Z][a-z]+)\s+\w)/gi,
+   to:(m)=>m.replace(/,\s*so\s+$/i,", ").replace(/\s{2,}/g," "),
+   why:"中文式「因為……所以……」在英文中只能擇一使用（此處的 so 是連接詞「所以」）"},
+
+  // ── 確定錯誤：although…but 並用 ──
+  {level:"error",
+   re:/\balthough\b[^.!?]*?,?\s*but\s+(?=(?:i|you|he|she|it|we|they|the|this|that|these|those|there|my|his|her|its|our|their|[A-Z][a-z]+)\s+\w)/gi,
+   to:(m)=>m.replace(/,?\s*but\s+$/i," ").replace(/\s{2,}/g," "),
+   why:"although 與 but 不可同時出現（此處的 but 是對等連接詞）"},
+
+  // ── 僅建議（不扣分）：更道地的寫法 ──
+  {level:"style", re:/\bhas difficulties\b/gi, to:"has difficulty",
+   why:"建議：表「做某事有困難」時，have difficulty V-ing 的 difficulty 多用不可數形"},
+  {level:"style", re:/\bhave difficulties\b/gi, to:"have difficulty",
+   why:"建議：表「做某事有困難」時，have difficulty V-ing 的 difficulty 多用不可數形"},
+  {level:"style", re:/\b(he|she|they|it)'s aged\b/gi, to:"$1 is old",
+   why:"建議：aged 語意略生硬，改用 be old 更自然"},
+  {level:"style", re:/\bvery delicious\b/gi, to:"delicious",
+   why:"建議：delicious 本身即為強烈形容詞，加 very 略顯贅字"}
+];
+
+// 偵測句中是否有限定動詞（判斷「名詞片語碎片」用，避免錯殺含關代的正確句）
+function hasFiniteVerb(lower){
+  if(/\b(is|am|are|was|were|be|been|being|has|have|had|do|does|did|can|could|will|would|shall|should|may|might|must)\b/.test(lower)) return true;
+  // 任一字具 -s / -ed / -ing 等動詞字尾，且非目標名詞 → 視為有動詞
+  if(/\b[a-z]{3,}(?:s|ed|ies)\b/.test(lower)) return true;
+  return false;
+}
+
+function applyRevisionRules(sentence){
+  let s=sentence, why=[], notes=[];
+  REVISION_RULES.forEach(r=>{
+    r.re.lastIndex=0;
+    if(r.re.test(s)){
+      r.re.lastIndex=0;
+      s=s.replace(r.re, r.to);
+      if(r.level==="error") why.push(r.why); else notes.push(r.why);
+    }
+    r.re.lastIndex=0;
+  });
+  s=s.replace(/\s{2,}/g," ").replace(/\s+([.,!?])/g,"$1").trim();
+  return {sentence:s, why:why, notes:notes};
+}
+
+// Revise students' sentence to make it grammatically correct AND efficient in meaning.
+function fallbackLocalCorrectionWithExplanation(studentInput, target, q, issues){
+  issues = issues || {};
+  let s=studentInput.trim();
+  const notes=[];
+  if(!s) return {corrected:(q?q.model_answer:target), explanation:"句子是空白的，先參考課文範例，再用自己的話寫一句完整的句子喔！"};
+
+  // 1) 拼字／單複數自動校正（依目標搭配詞的正確形式）
+  if(q && q.category!=="grammar"){
+    const targetWords=q.target.toLowerCase().replace(/[^a-z'\s.]/g," ").split(/\s+/).filter(w=>w.length>3
+      && !["sth","sb","one","own","some","that","this","with","from","into"].includes(w));
+    targetWords.forEach(tw=>{
+      const correct=tw.replace(/[^a-z]/g,"");
+      if(matchesAnyForm(s.toLowerCase(), correct)) return;
+      s = s.replace(/\b[A-Za-z]+\b/g, w=>{
+        const lw=w.toLowerCase();
+        if(lw===correct) return w;
+        const d=getLevenshteinDistance(correct, lw);
+        if((d>0 && d<=2) || lw===correct.replace(/s$/,"") || lw===correct+"s"){
+          notes.push(`「${w}」→「${correct}」`);
+          return correct;
+        }
+        return w;
+      });
+    });
+  }
+
+  // 2) 大小寫與句尾標點
+  s=s.charAt(0).toUpperCase()+s.slice(1);
+  if(!/[.!?]$/.test(s)) { s+="."; notes.push("補上句尾標點"); }
+
+  // 3) 語意效率：套用文法改寫規則、刪除重複贅字
+  const revised = applyRevisionRules(s);
+  s = revised.sentence;
+  const ruleWhy = revised.why;
+  s = s.replace(/\b(\w+)(\s+\1\b)+/gi, "$1").replace(/\s{2,}/g," ").replace(/\s+([.,!?])/g,"$1");
+  s = s.charAt(0).toUpperCase()+s.slice(1);
+  if(!/[.!?]$/.test(s)) s+=".";
+
+  const lowerS=s.toLowerCase(), words=lowerS.split(/\s+/);
+  let exp="";
+
+  // 4) 語意與結構診斷（明確說明「為什麼改」與「意思變得如何更清楚」）
+  if(!hasFiniteVerb(lowerS)){
+    exp="這個句子找不到主要動詞，目前只是一個名詞片語。英文句子必須有「主詞 + 動詞」，讀者才知道你想陳述什麼事。";
+  } else if(words.length<5){
+    exp=`句子太短，讀者看不出完整情境。建議補上「誰、在什麼情況下、造成什麼結果」，例如課文範例：${q?q.model_answer:""}`;
+  } else if(issues.number){
+    exp="名詞單複數會直接改變句意（一個 vs. 多個），已依搭配詞的正確形式調整，句意才會精準。";
+  } else if(issues.spelling){
+    exp="拼字錯誤會讓讀者誤解字義，已將關鍵字改回正確拼法，語意就清楚了。";
+  } else if(issues.grammar){
+    exp="句型結構未依規則使用，已調整為正確語序；語序正確，動作的施予者與承受者才不會被誤解。";
+  } else if(issues.token){
+    exp=`句中未完整出現目標搭配詞「${target}」，補上後語意才會扣合本課主題。`;
+  } else {
+    exp="已修飾大小寫、標點與贅字，使句子文法正確且語意更精簡明確。";
+  }
+  if(ruleWhy.length){
+    exp = "✍️ 文法／語意修正說明：" + ruleWhy.join("；") + "。" + exp;
+  }
+  if(revised.notes && revised.notes.length){
+    exp += "　💡 道地寫法建議（不扣分）：" + revised.notes.join("；") + "。";
+  }
+  if(notes.length) exp += "（本次修正：" + notes.slice(0,4).join("、") + "）";
+
+  return {corrected:s, explanation:exp};
+}
+
+// ========== 送出批改 ==========
+async function submitAnswer(){
+  const studentInput=document.getElementById('practice-input').value.trim();
+  if(!studentInput){ showToast("⚠️ 請先寫個句子再送出批改喔！"); return; }
+  const q=currentRoundQuestions[currentQuestionIndex];
+  const studentLower=studentInput.toLowerCase().replace(/[.,!?;:"']/g," ").replace(/\s+/g," ").trim();
+  const studentWords=studentLower.split(/\s+/);
+
+  document.getElementById('practice-input').disabled=true;
+  document.getElementById('btn-submit').disabled=true;
+  document.getElementById('ai-loading-indicator').classList.remove('hidden');
+
+  let hasSpellingError=false, hasGrammarError=false, isTooShort=false, hasTokenMissing=false, hasNumberError=false;
+  let spellingMsg="拼字與單複數皆正確 ✨", grammarMsg="結構正確 ✨", tenseMsg="完整度良好 ✨";
+  let spellingDetails=[], numberDetails=[];
+
+  // 拼字檢查 + 名詞單複數檢查（動詞才容許時態變化）
+  if(q.category!=="grammar"){
+    const targetWords=q.target.toLowerCase().replace(/[^a-z'\s.]/g," ").split(/\s+/).filter(Boolean);
+    targetWords.forEach(tWord=>{
+      const clean=tWord.replace(/[^a-z]/g,"");
+      if(clean.length>3 && !["sth","sb","one","own","some","that","this","with","from","into"].includes(clean)){
+        if(!matchesAnyForm(studentLower, clean)){
+          const num=checkNumberAgreement(studentLower, clean);
+          if(num){
+            hasNumberError=true;
+            numberDetails.push(num.type==="plural"
+              ? `「${num.singular}」應改為複數「${num.plural}」`
+              : `「${num.singular}」在此搭配詞中應使用單數形`);
+          } else {
+            studentWords.forEach(sw=>{
+              if(sw.length>3){
+                const d=getLevenshteinDistance(clean, sw);
+                if(d>0 && d<=2 && !spellingDetails.some(x=>x.includes(sw))){
+                  hasSpellingError=true;
+                  spellingDetails.push(`你寫的 "${sw}" → 正確拼法應為 "${clean}"`);
+                }
+              }
+            });
+          }
+        }
+      }
+    });
+  }
+
+  // 關鍵字組完整度（同樣容許合法時態變化）
+  let missingTokens=[];
+  (q.required_tokens||[]).forEach(tok=>{
+    if(!studentLower.includes(tok.toLowerCase()) && !matchesAnyForm(studentLower, tok)){
+      missingTokens.push(tok); hasTokenMissing=true;
+    }
+  });
+
+  if(studentWords.length<5) isTooShort=true;
+
+  // 名詞片語碎片攔截（寧可放過原則：唯有整句完全找不到任何限定動詞才判錯）
+  if(!hasFiniteVerb(studentLower)){
+    hasGrammarError=true;
+    grammarMsg="⚠️ 這個句子找不到主要動詞，目前只是一個名詞片語。英文句子必須有「主詞 + 動詞」才算完整喔！";
+  }
+
+  // 使役動詞句型專屬檢測
+  if(q.category==="grammar"){
+    if(q.id===33 && !/\b(make|makes|made|making)\b/.test(studentLower)){
+      hasGrammarError=true; grammarMsg="⚠️ 此句型需使用 make + 受詞 + 原形動詞（如 made me clean the room）。";
+    } else if(q.id===34 && !/\b(have|has|had|having)\b/.test(studentLower)){
+      hasGrammarError=true; grammarMsg="⚠️ 此句型需使用 have + 受詞 + 原形動詞（如 had his driver pick him up）。";
+    } else if(q.id===35 && !/\b(let|lets|letting)\b/.test(studentLower)){
+      hasGrammarError=true; grammarMsg="⚠️ 此句型需使用 let + 受詞 + 原形動詞（如 let me stay）。";
+    } else if(q.id===36){
+      if(!/\b(get|gets|got|gotten|getting)\b/.test(studentLower) || !/\bto\s+[a-z]+/.test(studentLower)){
+        hasGrammarError=true; grammarMsg="⚠️ get 為半使役動詞，受詞後須接 to + 原形動詞（如 got my brother to clean his room）。";
+      }
+    } else if(q.id===37){
+      if(!/\b(have|has|had|having|get|gets|got|gotten|getting)\b/.test(studentLower) ||
+         !/\b[a-z]+(ed|en|t)\b/.test(studentLower)){
+        hasGrammarError=true; grammarMsg="⚠️ 此句型受詞後須接過去分詞（如 had my bike repaired / got her essay checked）。";
+      }
+    }
+  }
+
+  // 通用錯字掃描：抓出非目標搭配詞的拼字錯誤（如 heen → been）
+  const properNouns = new Set((studentInput.match(/\b[A-Z][a-z]+\b/g)||[])
+    .filter((w,i)=>i>0 || !/^[A-Z][a-z]+$/.test(studentInput.split(/\s+/)[0]))
+    .map(w=>w.toLowerCase()));
+  studentWords.forEach(sw=>{
+    if(properNouns.has(sw)) return;                 // 人名、地名不算錯字
+    if((q.required_tokens||[]).some(t=>sw.includes(t.toLowerCase()))) return;
+    if(q.target.toLowerCase().includes(sw)) return;
+    const r=looksLikeTypo(sw);
+    if(r){
+      hasSpellingError=true;
+      spellingDetails.push(`你寫的 "${r.typo}" 可能拼錯了 → 應為 "${r.suggest}"`);
+    }
+  });
+
+  // 通用文法規則掃描（如 has difficulties / because...so / 助動詞後非原形等）
+  const ruleScan = applyRevisionRules(studentInput);
+  if(ruleScan.why.length){
+    const extra = "⚠️ " + ruleScan.why.join("；") + "。（請參考右側 AI 智慧修正版）";
+    grammarMsg = hasGrammarError ? grammarMsg + " ｜ " + extra : extra;
+    hasGrammarError = true;
+  }
+  // 道地寫法建議：顯示但【不扣分】，符合「寧可放過、不可錯殺」原則
+  if(ruleScan.notes && ruleScan.notes.length){
+    const tip = "💡 道地寫法建議（不扣分）：" + ruleScan.notes.join("；") + "。";
+    grammarMsg = (grammarMsg==="結構正確 ✨") ? ("結構正確 ✨　" + tip) : (grammarMsg + " ｜ " + tip);
+  }
+
+  const isCorrect = !hasSpellingError && !hasGrammarError && !isTooShort && !hasTokenMissing && !hasNumberError;
+
+  const issues={spelling:hasSpellingError,number:hasNumberError,grammar:hasGrammarError,token:hasTokenMissing,short:isTooShort};
+  let resultObj;
+  try { resultObj = fallbackLocalCorrectionWithExplanation(studentInput, q.target, q, issues); }
+  catch(e){ resultObj = {corrected:studentInput, explanation:"請對照課文參考範例做修正喔！"}; }
+
+  document.getElementById('ai-loading-indicator').classList.add('hidden');
+
+  const sBox=document.getElementById('diagnostic-spelling'),
+        gBox=document.getElementById('diagnostic-grammar'),
+        tBox=document.getElementById('diagnostic-tense');
+  if(hasSpellingError || hasNumberError){
+    const parts=[];
+    if(hasSpellingError) parts.push("✏️ 拼字錯誤："+spellingDetails.join("；"));
+    if(hasNumberError) parts.push("🔢 名詞單複數錯誤："+numberDetails.join("；"));
+    spellingMsg = parts.join(" ｜ ") + `（請對照目標搭配詞 "${q.target}" 修正，本題不計分）`;
+    sBox.className="diag bad";
+  } else sBox.className="diag ok";
+  gBox.className = hasGrammarError ? "diag bad" : "diag ok";
+  if(isTooShort || hasTokenMissing){
+    tenseMsg = isTooShort ? "⚠️ 句子長度偏短，建議試著擴充結構使其更完整。"
+                          : `⚠️ 似乎缺少關鍵字組：[${missingTokens.join(", ")}]`;
+    tBox.className="diag bad";
+  } else tBox.className="diag ok";
+  document.getElementById('diagnostic-spelling-msg').textContent=spellingMsg;
+  document.getElementById('diagnostic-grammar-msg').textContent=grammarMsg;
+  document.getElementById('diagnostic-tense-msg').textContent=tenseMsg;
+
+  let feedbackTitle, feedbackEmoji, feedbackText, scoreDelta;
+  if(isCorrect){
+    scoreDelta=SCORE_CORRECT; roundScore+=SCORE_CORRECT; totalScore+=SCORE_CORRECT;
+    feedbackTitle=shuffleArray(["Excellent job!","Wow! Amazing sentence!","You nailed it!","Beautiful grammar!"])[0];
+    feedbackEmoji="🎉";
+    feedbackText=`太棒了！Kahoot! 得分 +200！你成功運用了「${q.target}」，結構完整，時態和人稱都完美契合！`;
+    triggerFireworks();
+  } else {
+    scoreDelta=-SCORE_PENALTY;
+    roundScore=Math.max(0,roundScore-SCORE_PENALTY);
+    totalScore=Math.max(0,totalScore-SCORE_PENALTY);
+    feedbackTitle="別灰心！我們來做點小修正"; feedbackEmoji="💡";
+    feedbackText="這一題倒扣 50 分，但別擔心！請參考下方的診斷明細與 AI 修改建議來進行微調。錯誤是進步的最佳途徑，下一題把分數賺回來！";
+  }
+
+  const rs=document.getElementById('span-round-score'), ts=document.getElementById('span-total-score');
+  rs.textContent=roundScore; ts.textContent=totalScore;
+  rs.classList.remove('score-pop'); ts.classList.remove('score-pop');
+  void rs.offsetWidth; rs.classList.add('score-pop'); ts.classList.add('score-pop');
+
+  const deltaEl=document.getElementById('feedback-score-delta');
+  deltaEl.textContent = isCorrect ? "+200 分 🐬" : "−50 分 💧";
+  deltaEl.className = "delta score-pop " + (isCorrect?"plus":"minus");
+
+  roundReportData.push({word:q.word,target:q.target,target_ch:q.target_ch,userAnswer:studentInput,
+    correctedAnswer:resultObj.corrected,explanation:resultObj.explanation,modelAnswer:q.model_answer,
+    isCorrect:isCorrect,scoreDelta:scoreDelta});
+
+  document.getElementById('feedback-emoji').textContent=feedbackEmoji;
+  const ft=document.getElementById('feedback-title');
+  ft.textContent=feedbackTitle; ft.style.color = isCorrect ? "#15803d" : "#b45309";
+  document.getElementById('feedback-text').textContent=feedbackText;
+  document.getElementById('compare-user').textContent=studentInput;
+  document.getElementById('compare-corrected').innerHTML=highlightTarget(resultObj.corrected,q.target);
+  document.getElementById('compare-model').innerHTML=highlightTarget(q.model_answer,q.target);
+
+  const sug=document.getElementById('compare-suggestion');
+  if(!isCorrect && resultObj.explanation){ sug.textContent=`💡 修改建議：${resultObj.explanation}`; sug.classList.remove('hidden'); }
+  else sug.classList.add('hidden');
+
+  document.getElementById('btn-next-question').textContent = currentQuestionIndex<9 ? "下一題 ➡️" : "🏆 查看本輪結算結果";
+  // 第 10 題作答完畢 → 同時提供「列印／下載這 10 句作業」
+  document.getElementById('btn-print-now').style.display = (currentQuestionIndex>=9) ? "inline-block" : "none";
+  const fp=document.getElementById('feedback-panel');
+  fp.classList.remove('hidden');
+  fp.scrollIntoView({behavior:'smooth',block:'end'});
+}
+
+function highlightTarget(sentence,target){
+  if(!sentence) return "";
+  if(/\+|原形|過去分詞/.test(target)) return sentence;
+  const esc=target.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  return sentence.replace(new RegExp(`(${esc})`,'gi'), '<span class="hl-target">$1</span>');
+}
+
+function nextQuestion(){
+  if(currentQuestionIndex<9){ currentQuestionIndex++; updatePracticeUI(); window.scrollTo({top:0,behavior:'smooth'}); }
+  else { currentQuestionIndex=10; showReviewScreen(); }
+}
+
+function showReviewScreen(){
+  document.getElementById('section-practice').classList.add('hidden');
+  document.getElementById('section-review').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('review-score').textContent=`${roundScore} / ${ROUND_MAX}`;
+  document.getElementById('review-total-score').textContent=totalScore;
+
+  let gradeTitle, suggestion;
+  if(roundScore>=1800){
+    gradeTitle="🥇 簡直是英語寫作大師！Kahoot! 排行榜第一名非你莫屬！";
+    suggestion="你的句型結構豐富、文法無懈可擊，對搭配詞的掌握極高。建議繼續保持這種語感，在週記或大考作文中大膽寫出這樣的漂亮長句喔！";
+  } else if(roundScore>=1200){
+    gradeTitle="🥈 表現良好，用字精準！";
+    suggestion="你造句的用字很貼切，大部分句子都能完美融入關鍵搭配詞。稍微注意動詞時態、主詞單複數與使役動詞後的動詞形式，下一次一定能拿滿分 2000 分！";
+  } else {
+    gradeTitle="🌱 繼續加油，錯誤是成功的養分！";
+    suggestion="別氣餒！就像一個塑膠袋能被回收再製成新產品一樣，每一次的錯誤都能變成流利英文的養分。建議多利用發音功能聽幾次範例，並留意系統給予的【修改建議】喔！";
+  }
+  document.getElementById('review-grade-title').textContent=gradeTitle;
+  setTimeout(()=>showToast("📸 別忘了：請截圖本輪成績與對照總覽，上傳到 Google Classroom 繳交作業喔！"),900);
+  document.getElementById('review-suggestion').textContent=suggestion;
+
+  const wl=document.getElementById('review-weakness-list'); wl.innerHTML="";
+  const wrong=roundReportData.filter(i=>!i.isCorrect);
+  if(wrong.length===0){ wl.innerHTML="<li style='color:#15803d;font-weight:900;'>🎉 太強了！本輪沒有需要加強的搭配詞！</li>"; }
+  else wrong.forEach(i=>{
+    const li=document.createElement('li');
+    li.innerHTML=`<b style="color:#db2777;">${i.target}</b>（${i.target_ch}）— <span style="font-size:.8rem;opacity:.7;">原字：${i.word}</span>`;
+    wl.appendChild(li);
+  });
+
+  const box=document.getElementById('review-sentences-container'); box.innerHTML="";
+  roundReportData.forEach((item,idx)=>{
+    const card=document.createElement('div');
+    card.className="rcard "+(item.isCorrect?"ok":"bad");
+    const badge=item.isCorrect
+      ? '<span class="badge ok">正確 +200 🥳</span>'
+      : '<span class="badge bad">需要修正 −50 💡</span>';
+    const expHTML = (!item.isCorrect && item.explanation)
+      ? `<p style="font-size:.8rem;background:#fce7f3;color:#9d174d;padding:.5rem;border-radius:.5rem;margin-top:.5rem;line-height:1.7;">💡 建議：${item.explanation}</p>` : "";
+    card.innerHTML=`
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;">
+        <span style="font-weight:900;">第 ${idx+1} 題：${item.word}</span>${badge}
+      </div>
+      <p style="font-size:.88rem;font-weight:700;color:var(--darkCoffeeLight);">目標：<b style="color:var(--darkCoffee);">${item.target}</b>（${item.target_ch}）</p>
+      <div class="mini"><span class="lbl" style="color:#db2777;">💖 你的回答：</span><p>${item.userAnswer||"（未填寫）"}</p></div>
+      <div class="mini"><span class="lbl" style="color:#15803d;">✨ AI 智慧修正版：</span><p>${highlightTarget(item.correctedAnswer,item.target)}</p>${expHTML}</div>
+      <div class="mini"><span class="lbl" style="color:#2563eb;">📘 課堂參考範例：</span><p style="font-style:italic;">${highlightTarget(item.modelAnswer,item.target)}</p></div>`;
+    box.appendChild(card);
+  });
+}
+
+function esc(t){ return String(t==null?"":t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+// ===== 作業單 HTML 版（下載成 Word 檔或網頁檔）=====
+function buildHomeworkHTML(forWord){
+  const ok=roundReportData.filter(i=>i.isCorrect).length;
+  const weak=roundReportData.filter(i=>!i.isCorrect).map(i=>esc(i.target)).join("、")||"無，全部正確！";
+  const d=new Date();
+  const today=`${d.getFullYear()} 年 ${d.getMonth()+1} 月 ${d.getDate()} 日`;
+  let rows="";
+  roundReportData.forEach((it,i)=>{
+    rows += `
+    <div class="item ${it.isCorrect?'ok':'bad'}">
+      <div class="ihead">
+        <span class="no">第 ${i+1} 題</span>
+        <span class="w">${esc(it.word)}</span>
+        <span class="t">目標搭配詞：${esc(it.target)}（${esc(it.target_ch)}）</span>
+        <span class="badge">${it.isCorrect?"✅ 正確 +200":"💡 需修正 −50"}</span>
+      </div>
+      <p class="row"><b>我的句子：</b>${esc(it.userAnswer)||"（未填寫）"}</p>
+      <p class="row"><b>AI 修正版：</b>${esc(it.correctedAnswer)}</p>
+      ${(!it.isCorrect && it.explanation)?`<p class="row note"><b>修正說明：</b>${esc(it.explanation)}</p>`:""}
+      <p class="row ref"><b>課文參考範例：</b>${esc(it.modelAnswer)}</p>
+    </div>`;
+  });
+  const wordMeta = forWord ? `<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View></w:WordDocument></xml><![endif]-->` : "";
+  return `<!DOCTYPE html>
+<html lang="zh-Hant" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No. 1 龍騰 B1 L5 造句練習作業單</title>${wordMeta}
+<style>
+  body{font-family:"Microsoft JhengHei","Heiti TC","Segoe UI",sans-serif;color:#4A3E3D;line-height:1.85;
+    max-width:820px;margin:0 auto;padding:28px 24px 60px;background:#fff;}
+  h1{font-size:19px;border-bottom:3px solid #FCE7F3;padding-bottom:8px;margin-bottom:14px;}
+  .info{font-size:13px;background:#FFFBEB;border:1px solid #fde68a;border-radius:8px;padding:10px 12px;margin-bottom:8px;}
+  .score{font-size:13px;background:#E2F1FF;border:1px solid #bfdbfe;border-radius:8px;padding:10px 12px;margin-bottom:16px;}
+  .item{border:1px solid #e9d5ff;border-left:5px solid #c4b5fd;border-radius:8px;padding:10px 12px;margin-bottom:12px;page-break-inside:avoid;}
+  .item.ok{border-left-color:#86efac;} .item.bad{border-left-color:#f9a8d4;}
+  .ihead{font-size:12.5px;font-weight:700;margin-bottom:6px;}
+  .ihead .no{background:#F3E8FF;border-radius:999px;padding:2px 8px;margin-right:6px;}
+  .ihead .w{color:#7c3aed;margin-right:8px;}
+  .ihead .t{color:#6B5A59;margin-right:8px;}
+  .ihead .badge{font-weight:800;}
+  .row{font-size:13.5px;margin:3px 0;}
+  .row.note{color:#9d174d;background:#fdf2f8;border-radius:6px;padding:5px 8px;}
+  .row.ref{color:#1d4ed8;font-style:italic;}
+  .foot{margin-top:22px;border-top:1px dashed #ccc;padding-top:10px;font-size:12.5px;color:#777;}
+  @media print{ body{padding:12px;} .item{break-inside:avoid;} }
+</style></head>
+<body>
+<h1>🐬 No. 1 龍騰 B1 L5 The Life of a Plastic Bag ｜ 搭配詞造句練習作業單</h1>
+<div class="info">班級：____________　座號：________　姓名：________________　日期：${today}</div>
+<div class="score">第 ${currentRound} 輪　本輪得分：<b>${roundScore} / ${ROUND_MAX}</b>　累計總分：<b>${totalScore}</b>　
+答對 <b>${ok}</b> 題／需修正 <b>${roundReportData.length-ok}</b> 題<br>需加強的搭配詞：${weak}</div>
+${rows}
+<div class="foot">※ 請將本作業單上傳到 Google Classroom 的作業區繳交（可直接複製全文貼上，或存成 PDF／Word 檔上傳）。<br>
+教師簽核：____________　　訂正完成：□ 是　□ 否</div>
+</body></html>`;
+}
+
+function hasRoundData(){
+  if(!roundReportData.length){ showToast("⚠️ 這一輪還沒有作答紀錄，先完成題目再列印喔！"); return false; }
+  return true;
+}
+
+function saveBlob(content, filename, mime){
+  try{
+    const blob=new Blob(["﻿"+content], {type:mime});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url; a.download=filename;
+    document.body.appendChild(a); a.click();
+    setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 1200);
+    return true;
+  }catch(e){ return false; }
+}
+function stamp(){
+  const d=new Date(), z=n=>String(n).padStart(2,'0');
+  return `${d.getFullYear()}${z(d.getMonth()+1)}${z(d.getDate())}`;
+}
+// 下載 Word 檔（.doc，Word／Google Docs 皆可開啟與編輯）
+function downloadHomeworkDoc(){
+  if(!hasRoundData()) return;
+  const name=`B1L5造句作業_第${currentRound}輪_${stamp()}.doc`;
+  if(saveBlob(buildHomeworkHTML(true), name, 'application/msword'))
+    showToast("📄 Word 作業檔已下載！可直接上傳到 Google Classroom 繳交");
+  else showToast("⚠️ 下載失敗，請改用「🖨️ 開啟作業單」列印或存 PDF");
+}
+// 下載網頁檔（.html，手機也能開）
+function downloadHomeworkHtml(){
+  if(!hasRoundData()) return;
+  const name=`B1L5造句作業_第${currentRound}輪_${stamp()}.html`;
+  if(saveBlob(buildHomeworkHTML(false), name, 'text/html;charset=utf-8'))
+    showToast("🌐 網頁作業檔已下載！可直接上傳到 Google Classroom 繳交");
+  else showToast("⚠️ 下載失敗，請改用「🖨️ 開啟作業單」列印或存 PDF");
+}
+
+function endLearningSession(){
+  showToast(`🌸 謝謝你的參與！你的累計總分是 ${totalScore} 分。The Life of a Plastic Bag，我們下次見！`);
+}
+
+function startNextRound(){
+  if(currentRound>=5){
+    showToast("🔔 5 個輪次已圓滿完成！題庫即將全面重置，再陪你複習一次喔！");
+    currentRound=1; testedCollocationIds=[]; testedPatternIds=[];
+  } else currentRound++;
+  currentQuestionIndex=0; roundScore=0; roundReportData=[]; activeTab='practice'; tabOpen=true;
+  document.getElementById('tab-practice').classList.add('active');
+  document.getElementById('tab-flashcards').classList.remove('active');
+  setupNewRoundQuestions(); updatePracticeUI();
+  document.getElementById('section-review').classList.add('hidden');
+  document.getElementById('section-practice').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+  showToast(`🎉 開始第 ${currentRound} 輪的練習，累計總分繼續累加，加油！`);
+}
+
+let toastTimer=null;
+function showToast(msg){
+  const t=document.getElementById('toast-message');
+  t.textContent=msg; t.classList.remove('hidden');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.add('hidden'),3500);
+}
+
+// ========== 答對煙火動畫 ==========
+const canvas=document.getElementById('fireworksCanvas'), ctx=canvas.getContext('2d');
+let particles=[], animating=false;
+class Particle{
+  constructor(x,y,color){
+    this.x=x;this.y=y;this.color=color;this.size=Math.random()*4+3;
+    this.speedX=Math.random()*6-3;this.speedY=Math.random()*6-3;
+    this.gravity=0.08;this.alpha=1;this.decay=Math.random()*0.015+0.01;
+  }
+  update(){this.speedY+=this.gravity;this.x+=this.speedX;this.y+=this.speedY;this.alpha-=this.decay;}
+  draw(){ctx.save();ctx.globalAlpha=Math.max(this.alpha,0);ctx.fillStyle=this.color;ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.restore();}
+}
+function triggerFireworks(){
+  const colors=['#E2F1FF','#F3E8FF','#FCE7F3','#FEF9C3','#A7F3D0','#BFDBFE'];
+  for(let burst=0;burst<2;burst++){
+    const x=Math.random()*canvas.width;
+    const y=Math.random()*(canvas.height*0.5)+(canvas.height*0.15);
+    for(let i=0;i<60;i++) particles.push(new Particle(x,y,colors[Math.floor(Math.random()*colors.length)]));
+  }
+  if(!animating){ animating=true; animateFireworks(); }
+}
+function animateFireworks(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  if(particles.length===0){ animating=false; return; }
+  for(let i=particles.length-1;i>=0;i--){
+    particles[i].update(); particles[i].draw();
+    if(particles[i].alpha<=0) particles.splice(i,1);
+  }
+  requestAnimationFrame(animateFireworks);
+}
+</script>
+<div class="bottom-safe"></div>
+</body>
+</html>
